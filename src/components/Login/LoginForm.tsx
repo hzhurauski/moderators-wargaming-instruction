@@ -5,8 +5,6 @@ import { actions } from '../../redux/authReducer'
 import { useState } from 'react'
 import { changePasswordSelector } from '../../selectors/authSelectors'
 
-
-
 type FormType = {
   name: string
   password: string
@@ -18,12 +16,10 @@ type CurrentFieldType = {
   password?: string
 }
 
-
 const LoginForm = () => {
   const password = useSelector(changePasswordSelector)
   const [errorPassword, setErrorPassword] = useState(false)
   const dispatch = useDispatch()
-
 
   const onFinish = ({ name, rememberMe }: FormType) => {
     if (password === 'Legal_Team') {
@@ -52,24 +48,28 @@ const LoginForm = () => {
       name="normal_login"
       className="login-form"
       initialValues={{ password: password, remember: true }}
-      onValuesChange={onChange}>
+      onValuesChange={onChange}
+    >
       <Form.Item
         name="name"
-        rules={[{ required: true, message: 'Введите, пожалуйста, имя' }]}>
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Ваше имя" />
+        rules={[{ required: true, message: 'Введите, пожалуйста, имя' }]}
+      >
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Ваше имя"
+        />
       </Form.Item>
       <Form.Item
         name="password"
-        rules={[{ required: true, message: 'Пароль обязателен!' }]}>
+        rules={[{ required: true, message: 'Пароль обязателен!' }]}
+      >
         <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
-          placeholder="Пароль" />
+          placeholder="Пароль"
+        />
       </Form.Item>
-      {errorPassword &&
-        <div style={{ color: 'red' }}>
-          Пароль неверный!
-        </div>}
+      {errorPassword && <div style={{ color: 'red' }}>Пароль неверный!</div>}
       <Form.Item>
         <Form.Item name="rememberMe" valuePropName="checked" noStyle>
           <Checkbox>Запомнить меня</Checkbox>
@@ -83,7 +83,5 @@ const LoginForm = () => {
     </Form>
   )
 }
-
-
 
 export default LoginForm

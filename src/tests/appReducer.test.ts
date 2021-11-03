@@ -1,18 +1,15 @@
-import appReducer, { actions, InitialStateType } from "../redux/appReducer"
-
+import appReducer, { actions, InitialStateType } from '../redux/appReducer'
 
 let state: InitialStateType
 
-
 beforeEach(() => {
-    state = {
-        title: 'Инструкция по поиску'
-    }
+  state = {
+    title: 'Инструкция по поиску',
+  }
 })
 
-
 test('change title', () => {
-    const NewState = appReducer(state, actions.changeTitle('Title'))
+  const NewState = appReducer(state, actions.changeTitle('Title'))
 
-    expect(NewState.title).toBe('Title')
+  expect(NewState.title).toBe('Title')
 })

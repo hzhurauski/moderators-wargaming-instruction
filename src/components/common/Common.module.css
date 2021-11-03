@@ -1,35 +1,40 @@
-.main h1, h2, h3, h4, h5, h6 {
-   text-align: center;
+.main h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
 }
 
 .main p {
-   font-size: 15px;
+  font-size: 15px;
 }
 
 .main h1 {
-   font-size: 50px;
+  font-size: 50px;
 }
 
 .main h2 {
-   font-size: 45px;
+  font-size: 45px;
 }
 
 .main h3 {
-   font-size: 35px;
+  font-size: 35px;
 }
 
 .main h4 {
-   font-size: 25px;
+  font-size: 25px;
 }
 
 .main h5 {
-   font-size: 20px;
+  font-size: 20px;
 }
 
 .main h6 {
-   font-size: 12px;
+  font-size: 12px;
 }
 
 .main img {
-   margin: 50px;
+  margin: 50px;
 }

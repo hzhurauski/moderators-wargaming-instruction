@@ -1,7 +1,14 @@
 import React, { Profiler, useEffect, useState } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import store from './redux/redux'
-import { BrowserRouter, Route, Switch, Redirect, Link, useLocation } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect,
+  Link,
+  useLocation,
+} from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import {
   CheckOutlined,
@@ -17,7 +24,7 @@ import {
   SettingOutlined,
   EyeOutlined,
   TranslationOutlined,
-  FileProtectOutlined
+  FileProtectOutlined,
 } from '@ant-design/icons'
 import 'antd/dist/antd.css'
 import Home from './components/Home'
@@ -28,7 +35,7 @@ import { withAuthRedirect } from './HOC/withAuthRedirect'
 import { itemRender, routes } from './components/Breadcrumb'
 import Comments from './components/Comment/Comments'
 //@ts-ignore
-import { withUserAgent } from "react-useragent"
+import { withUserAgent } from 'react-useragent'
 import CatchError from './components/catchError'
 import { changeTitleSelector } from './selectors/appSelectors'
 import { authSuccessSelector } from './selectors/authSelectors'
@@ -37,7 +44,6 @@ import { actions as actionsApp } from './redux/appReducer'
 import { actions as actionsAuth } from './redux/authReducer'
 import { TextareaRequestThunk } from './redux/commentReducer'
 
-
 type LocationType = {
   pathname: string
   search: string
@@ -45,7 +51,6 @@ type LocationType = {
   state: unknown
   key?: string
 }
-
 
 type PropsType = {
   ua: UaType
@@ -66,7 +71,14 @@ const currentIcon = (location: LocationType) => {
   }
 }
 
-const logProfiler = (id: string, phase: string, actualTime: number, baseTime: number, startTime: number, commitTime: number) => {
+const logProfiler = (
+  id: string,
+  phase: string,
+  actualTime: number,
+  baseTime: number,
+  startTime: number,
+  commitTime: number
+) => {
   /* console.log(id)
   console.log(phase)
   console.log(actualTime)
@@ -75,11 +87,13 @@ const logProfiler = (id: string, phase: string, actualTime: number, baseTime: nu
   console.log(commitTime) */
 }
 
-
 const Suspense = (assignment: string, network: string) => {
-  return withAuthRedirect(withSuspense(React.lazy(() => import(`./components/networks/${assignment}/${network}`))))
+  return withAuthRedirect(
+    withSuspense(
+      React.lazy(() => import(`./components/networks/${assignment}/${network}`))
+    )
+  )
 }
-
 
 const VkSearchSuspense = Suspense('search', 'Vk')
 const TelegramSearchSuspense = Suspense('search', 'Telegram')
@@ -92,10 +106,8 @@ const TikTokSearchSuspense = Suspense('search', 'TikTok') */
 
 const VkFormalizationSuspense = Suspense('formalization', 'Vk')
 
-
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
-
 
 const App: React.FC<PropsType> = React.memo(({ ua }) => {
   const dispatch = useDispatch()
@@ -112,16 +124,18 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
 
   let currentBreadCrumb = (routes: Array<RoutesType>) => {
     let URL = location.pathname.split('/')
-    let currentNetwork = [...routes,
-    { path: location.pathname, breadcrumbName: location.pathname.replace('/', '') }
+    let currentNetwork = [
+      ...routes,
+      {
+        path: location.pathname,
+        breadcrumbName: location.pathname.replace('/', ''),
+      },
     ]
     switch (location.pathname) {
       case '/':
       case '/home':
       case '/login':
-        return [
-          ...routes
-        ]
+        return [...routes]
       case '/network/search/vk':
       case '/network/search/telegram':
       case '/network/search/discord':
@@ -130,12 +144,10 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
         return [
           ...routes,
           { path: URL[2], breadcrumbName: URL[2].replace('/', '') },
-          { path: URL[3], breadcrumbName: URL[3].replace('/', '') }
+          { path: URL[3], breadcrumbName: URL[3].replace('/', '') },
         ]
     }
-    return [
-      ...currentNetwork
-    ]
+    return [...currentNetwork]
   }
 
   useEffect(() => {
@@ -153,11 +165,9 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
     window.scrollTo(0, 0)
   }, [location])
 
-
   useEffect(() => {
     dispatch(TextareaRequestThunk())
   }, [dispatch])
-
 
   useEffect(() => {
     switch (location.pathname) {
@@ -187,7 +197,6 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
     }
   }, [location, dispatch])
 
-
   useEffect(() => {
     document.title = title
   }, [title])
@@ -198,49 +207,166 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
   }
 
   return (
-    <Layout style={{ minHeight: '100vh'/* , minWidth: '690px' */ /* 1060 */ }}>
+    <Layout style={{ minHeight: '100vh' /* , minWidth: '690px' */ /* 1060 */ }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={['/login']} selectedKeys={[location.pathname]} mode="inline">
-          {isAuth
-            ? <Menu.Item key="/login" icon={<CloseOutlined />} onClick={handleChange}>
-              <Link to='/login'>Выйти</Link>
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={['/login']}
+          selectedKeys={[location.pathname]}
+          mode="inline"
+        >
+          {isAuth ? (
+            <Menu.Item
+              key="/login"
+              icon={<CloseOutlined />}
+              onClick={handleChange}
+            >
+              <Link to="/login">Выйти</Link>
             </Menu.Item>
-            : <Menu.Item key="/login" icon={<LockOutlined />}>
-              <Link to='/login'>Аутентификация</Link>
-            </Menu.Item>}
-          {isAuth && <Menu.Item key="/home" icon={<HomeOutlined />}>
-            <Link to='/home'>Введение</Link>
-          </Menu.Item>}
-          {isAuth && <SubMenu key="sub1" icon={currentIcon(location)} title="Социальные сети">
-            <SubMenu key="sub2" icon={<SearchOutlined />} title="Поиск">
-              <Menu.Item key="/network/search/vk"><Link to='/network/search/vk'>Vk</Link></Menu.Item>
-              <Menu.Item key="/network/search/telegram"><Link to='/network/search/telegram'>Telegram</Link></Menu.Item>
-              <Menu.Item key="/network/search/discord"><Link to='/network/search/discord'>Discord</Link></Menu.Item>
-              <Menu.Item key="/network/search/instagram"><Link to='/network/search/instagram'>Instagram</Link></Menu.Item>
-              {/* <Menu.Item key="/network/ok"><Link to='/ok'>Ok</Link></Menu.Item>
+          ) : (
+            <Menu.Item key="/login" icon={<LockOutlined />}>
+              <Link to="/login">Аутентификация</Link>
+            </Menu.Item>
+          )}
+          {isAuth && (
+            <Menu.Item key="/home" icon={<HomeOutlined />}>
+              <Link to="/home">Введение</Link>
+            </Menu.Item>
+          )}
+          {isAuth && (
+            <SubMenu
+              key="sub1"
+              icon={currentIcon(location)}
+              title="Социальные сети"
+            >
+              <SubMenu key="sub2" icon={<SearchOutlined />} title="Поиск">
+                <Menu.Item key="/network/search/vk">
+                  <Link to="/network/search/vk">Vk</Link>
+                </Menu.Item>
+                <Menu.Item key="/network/search/telegram">
+                  <Link to="/network/search/telegram">Telegram</Link>
+                </Menu.Item>
+                <Menu.Item key="/network/search/discord">
+                  <Link to="/network/search/discord">Discord</Link>
+                </Menu.Item>
+                <Menu.Item key="/network/search/instagram">
+                  <Link to="/network/search/instagram">Instagram</Link>
+                </Menu.Item>
+                {/* <Menu.Item key="/network/ok"><Link to='/ok'>Ok</Link></Menu.Item>
               <Menu.Item key="/network/facebook"><Link to='/facebook'>Facebook</Link></Menu.Item>
               <Menu.Item key="/network/yandex"><Link to='/yandex'>Yandex</Link></Menu.Item>
               <Menu.Item key="/network/tiktok"><Link to='/tiktok'>TikTok</Link></Menu.Item> */}
+              </SubMenu>
+              <SubMenu
+                key="sub3"
+                icon={<FileProtectOutlined />}
+                title="Оформление"
+              >
+                <Menu.Item key="/network/formalization/vk">
+                  <Link to="/network/formalization/vk">Vk</Link>
+                </Menu.Item>
+              </SubMenu>
             </SubMenu>
-            <SubMenu key="sub3" icon={<FileProtectOutlined />} title="Оформление">
-              <Menu.Item key="/network/formalization/vk"><Link to='/network/formalization/vk'>Vk</Link></Menu.Item>
+          )}
+          {isAuth && (
+            <SubMenu key="sub4" icon={<MenuOutlined />} title="Наши проекты">
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/world-of-tanks"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Tanks
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/world-of-warships"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Warships
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/wows-blitz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Warships Blitz
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/world-of-warplanes"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Warplanes
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/world-of-tanks-blitz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Tanks Blitz
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/world-of-tanks-console"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  World of Tanks (Xbox/PS5)
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://wargaming.com/ru/games/master-of-orion"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Master of Orion
+                </a>
+              </Menu.Item>
             </SubMenu>
-          </SubMenu>}
-          {isAuth && <SubMenu key="sub4" icon={<MenuOutlined />} title="Наши проекты">
-            <Menu.Item><a href="https://wargaming.com/ru/games/world-of-tanks" target="_blank" rel="noreferrer">World of Tanks</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/world-of-warships" target="_blank" rel="noreferrer">World of Warships</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/wows-blitz" target="_blank" rel="noreferrer">World of Warships Blitz</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/world-of-warplanes" target="_blank" rel="noreferrer">World of Warplanes</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/world-of-tanks-blitz" target="_blank" rel="noreferrer">World of Tanks Blitz</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/world-of-tanks-console" target="_blank" rel="noreferrer">World of Tanks (Xbox/PS5)</a></Menu.Item>
-            <Menu.Item><a href="https://wargaming.com/ru/games/master-of-orion" target="_blank" rel="noreferrer">Master of Orion</a></Menu.Item>
-          </SubMenu>}
-          {isAuth && <SubMenu key="sub5" icon={<GithubOutlined />} title="Мои контакты">
-            <Menu.Item><a href="https://t.me/web_front_dev" target="_blank" rel="noreferrer">Telegram</a></Menu.Item>
-            <Menu.Item><a href="https://vk.com/id315800614" target="_blank" rel="noreferrer">Vk</a></Menu.Item>
-            <Menu.Item><a href="http://www.facebook.com/profile.php?id=100014898465280" target="_blank" rel="noreferrer">Facebook</a></Menu.Item>
-          </SubMenu>}
+          )}
+          {isAuth && (
+            <SubMenu key="sub5" icon={<GithubOutlined />} title="Мои контакты">
+              <Menu.Item>
+                <a
+                  href="https://t.me/web_front_dev"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Telegram
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="https://vk.com/id315800614"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Vk
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="http://www.facebook.com/profile.php?id=100014898465280"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Facebook
+                </a>
+              </Menu.Item>
+            </SubMenu>
+          )}
           {/* <SubMenu key="sub6" icon={<SettingOutlined />} title="Настройки">
             <SubMenu key="sub7" icon={<EyeOutlined />} title="Тема">
               <Menu.Item key="1" onClick={() => setDarkTheme(!darkTheme)} >{darkTheme ? 'Обычная' : 'Темная'}</Menu.Item>
@@ -254,28 +380,57 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
         <Content style={{ margin: '0 16px' }}>
-          {isAuth && <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb itemRender={itemRender} routes={currentBreadCrumb(routes)} />
-          </Breadcrumb>}
-          <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+          {isAuth && (
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb
+                itemRender={itemRender}
+                routes={currentBreadCrumb(routes)}
+              />
+            </Breadcrumb>
+          )}
+          <div
+            className="site-layout-background"
+            style={{ padding: 24, minHeight: 360 }}
+          >
             <Switch>
-              <Route exact path='/' render={() => <Redirect to='/home' />} />
-              <Route path='/login' render={() => <Login />} />
-              <Route path='/home' render={() => <Home />} />
-              <Route path='/network/search/vk' render={() => <VkSearchSuspense />} />
-              <Route path='/network/formalization/vk' render={() => <VkFormalizationSuspense />} />
-              <Route path='/network/search/telegram' render={() => <TelegramSearchSuspense />} />
-              <Route path='/network/search/discord' render={() => <DiscordSearchSuspense />} />
-              <Route path='/network/search/instagram' render={() => <InstagramSearchSuspense />} />
+              <Route exact path="/" render={() => <Redirect to="/home" />} />
+              <Route path="/login" render={() => <Login />} />
+              <Route path="/home" render={() => <Home />} />
+              <Route
+                path="/network/search/vk"
+                render={() => <VkSearchSuspense />}
+              />
+              <Route
+                path="/network/formalization/vk"
+                render={() => <VkFormalizationSuspense />}
+              />
+              <Route
+                path="/network/search/telegram"
+                render={() => <TelegramSearchSuspense />}
+              />
+              <Route
+                path="/network/search/discord"
+                render={() => <DiscordSearchSuspense />}
+              />
+              <Route
+                path="/network/search/instagram"
+                render={() => <InstagramSearchSuspense />}
+              />
               {/* <Route path='/network/ok' render={() => <OkSearchSuspense />} />
                 <Route path='/network/facebook' render={() => <FacebookSearchSuspense />} />
                 <Route path='/network/yandex' render={() => <YandexSearchSuspense />} />
                 <Route path='/network/tiktok' render={() => <TikTokSearchSuspense />} /> */}
-              <Route path='*' render={() => <NotFound />} />
+              <Route path="*" render={() => <NotFound />} />
             </Switch>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center', marginTop: '150px', background: 'Gainsboro' }}>
+        <Footer
+          style={{
+            textAlign: 'center',
+            marginTop: '150px',
+            background: 'Gainsboro',
+          }}
+        >
           {isAuth && <Comments />}
         </Footer>
       </Layout>
@@ -283,19 +438,18 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
   )
 })
 
-
 const MainApp: React.FC<PropsType> = React.memo((props) => {
-  return <BrowserRouter>
-    <Profiler id='App' onRender={logProfiler}>
-      <CatchError>
-        <Provider store={store}>
-          <App {...props} />
-        </Provider>
-      </CatchError>
-    </Profiler>
-  </BrowserRouter>
+  return (
+    <BrowserRouter>
+      <Profiler id="App" onRender={logProfiler}>
+        <CatchError>
+          <Provider store={store}>
+            <App {...props} />
+          </Provider>
+        </CatchError>
+      </Profiler>
+    </BrowserRouter>
+  )
 })
-
-
 
 export default withUserAgent(MainApp)

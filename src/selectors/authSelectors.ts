@@ -1,16 +1,13 @@
 import { AppStateType } from '../redux/redux'
 
-
 export const authSuccessSelector = (state: AppStateType) => {
-    return state.authPage.isAuth
+  return state.authPage.isAuth
 }
-
 
 export const setUserDataSelector = (state: AppStateType) => {
-    return state.authPage.payload
+  return state.authPage.payload
 }
 
-
 export const changePasswordSelector = (state: AppStateType) => {
-    return state.authPage.currentPassword
+  return state.authPage.currentPassword
 }
