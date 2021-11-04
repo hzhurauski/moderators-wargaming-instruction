@@ -118,13 +118,13 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
   const [englishLanguage, setEnglishLanguage] = useState(false)
   const [darkTheme, setDarkTheme] = useState(false)
 
-  let onCollapse = (collapsed: boolean) => {
+  const onCollapse = (collapsed: boolean) => {
     setCollapsed(collapsed)
   }
 
-  let currentBreadCrumb = (routes: Array<RoutesType>) => {
-    let URL = location.pathname.split('/')
-    let currentNetwork = [
+  const currentBreadCrumb = (routes: Array<RoutesType>) => {
+    const URL = location.pathname.split('/')
+    const currentNetwork = [
       ...routes,
       {
         path: location.pathname,
@@ -155,7 +155,7 @@ const App: React.FC<PropsType> = React.memo(({ ua }) => {
     if (JSON.parse(localStorage.getItem('rememberMe')) === true) {
       dispatch(actionsAuth.authSuccess(true))
     }
-    let name = localStorage.getItem('name')
+    const name = localStorage.getItem('name')
     if (name) {
       dispatch(actionsAuth.setUserData(name, '', false))
     }

@@ -3,7 +3,7 @@ import { InferActionsType } from './redux'
 export type InitialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>
 
-let initialState = {
+const initialState = {
   title: 'Инструкция по поиску',
 }
 

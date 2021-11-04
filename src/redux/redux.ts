@@ -24,7 +24,7 @@ export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<
   A
 >
 
-let rootReducers = combineReducers({
+const rootReducers = combineReducers({
   authPage: authReducer,
   comment: commentReducer,
   app: appReducer,

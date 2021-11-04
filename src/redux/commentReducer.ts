@@ -6,7 +6,7 @@ export type InitialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>
 type ThunkType = BaseThunkType<ActionsType>
 
-let initialState = {
+const initialState = {
   isSubmitting: false,
   message: '',
   comments: [] as Array<CommentType>,
@@ -55,7 +55,7 @@ export const actions = {
 }
 
 export const TextareaRequestThunk = (): ThunkType => async (dispatch) => {
-  let response = await commentAPI.setComments()
+  const response = await commentAPI.setComments()
   if (response.resultCode === ResultCodesEnum.Success) {
     dispatch(actions.setComments(response.comments))
   }

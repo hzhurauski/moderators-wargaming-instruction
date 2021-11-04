@@ -13,9 +13,9 @@ const { TextArea } = Input
 
 const CommentForm: React.FC = () => {
   let date = new Date()
-  let dd = String(date.getDate()).padStart(2, '0')
-  let mm = String(date.getMonth() + 1).padStart(2, '0')
-  let yyyy = date.getFullYear()
+  const dd = String(date.getDate()).padStart(2, '0')
+  const mm = String(date.getMonth() + 1).padStart(2, '0')
+  const yyyy = date.getFullYear()
 
   //@ts-ignore
   date = dd + '.' + mm + '.' + yyyy
@@ -26,7 +26,7 @@ const CommentForm: React.FC = () => {
   const message = useSelector(currentMessageSelector)
   const submitting = useSelector(commentSubmittingSelector)
 
-  let handleSubmit = () => {
+  const handleSubmit = () => {
     if (!message) {
       return
     }
@@ -43,7 +43,7 @@ const CommentForm: React.FC = () => {
     dispatch(actions.commentSubmitting(false))
   }
 
-  let handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(actions.changeMessage(e.target.value))
   }
 
