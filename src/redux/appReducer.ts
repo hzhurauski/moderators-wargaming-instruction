@@ -1,4 +1,4 @@
-import { InferActionsType } from './redux'
+import { InferActionsType } from 'redux/redux'
 
 export type InitialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserDataSelector } from '../../selectors/authSelectors'
+import { setUserDataSelector } from 'selectors/authSelectors'
 import {
   currentMessageSelector,
   commentSubmittingSelector,
   setCommentsSelector,
-} from '../../selectors/commentSelectors'
-import { actions } from '../../redux/commentReducer'
+} from 'selectors/commentSelectors'
+import { actions } from 'redux/commentReducer'
 import { Form, Button, Input } from 'antd'
 
 const { TextArea } = Input

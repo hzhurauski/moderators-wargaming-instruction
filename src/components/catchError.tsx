@@ -1,5 +1,5 @@
 import { PureComponent, ErrorInfo } from 'react'
-import styles from './common/Common.module.css'
+import styles from 'components/common/Common.module.css'
 
 class CatchError extends PureComponent<{}, { hasError: boolean }> {
   //@ts-ignore todo

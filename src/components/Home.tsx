@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { withAuthRedirect } from '../HOC/withAuthRedirect'
-import { setUserDataSelector } from '../selectors/authSelectors'
-import styles from './common/Common.module.css'
+import { withAuthRedirect } from 'HOC/withAuthRedirect'
+import { setUserDataSelector } from 'selectors/authSelectors'
+import styles from 'components/common/Common.module.css'
 import { Link } from 'react-router-dom'
 
 const Home: React.FC = () => {

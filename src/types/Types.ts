@@ -1,4 +1,4 @@
-import { ResultCodesEnum } from '../DAL/API'
+import { ResultCodesEnum } from 'DAL/API'
 
 export type CommentType = {
   name: string

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './../../common/Common.module.css'
-import img1 from './../../../images/telegram/part.png'
-import img2 from './../../../images/telegram/window.png'
-import img3 from './../../../images/telegram/full.png'
-import img4 from './../../../images/telegram/tgstat.png'
-import img5 from './../../../images/telegram/telegros.png'
-import img6 from './../../../images/telegram/popsters.png'
-import img7 from './../../../images/telegram/search_messages.png'
+import styles from 'components/common/Common.module.css'
+import img1 from 'images/telegram/part.png'
+import img2 from 'images/telegram/window.png'
+import img3 from 'images/telegram/full.png'
+import img4 from 'images/telegram/tgstat.png'
+import img5 from 'images/telegram/telegros.png'
+import img6 from 'images/telegram/popsters.png'
+import img7 from 'images/telegram/search_messages.png'
 
 const TelegramSearch: React.FC = () => {
   return (

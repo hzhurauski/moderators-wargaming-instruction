@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { authSuccessSelector } from '../../selectors/authSelectors'
+import { authSuccessSelector } from 'selectors/authSelectors'
 import LoginForm from './LoginForm'
-import styles from './../common/Common.module.css'
+import styles from 'components/common/Common.module.css'
 
 const Login: React.FC = () => {
   const authSuccess = useSelector(authSuccessSelector)

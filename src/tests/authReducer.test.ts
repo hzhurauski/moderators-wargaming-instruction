@@ -1,4 +1,4 @@
-import authReducer, { actions, InitialStateType } from '../redux/authReducer'
+import authReducer, { actions, InitialStateType } from 'redux/authReducer'
 
 let state: InitialStateType
 

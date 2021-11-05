@@ -1,6 +1,6 @@
-import { commentAPI, ResultCodesEnum } from '../DAL/API'
-import { CommentType } from '../types/Types'
-import { BaseThunkType, InferActionsType } from './redux'
+import { commentAPI, ResultCodesEnum } from 'DAL/API'
+import { CommentType } from 'types/Types'
+import { BaseThunkType, InferActionsType } from 'redux/redux'
 
 export type InitialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>

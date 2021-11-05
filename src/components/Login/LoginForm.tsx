@@ -1,9 +1,9 @@
 import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { actions } from '../../redux/authReducer'
+import { actions } from 'redux/authReducer'
 import { useState } from 'react'
-import { changePasswordSelector } from '../../selectors/authSelectors'
+import { changePasswordSelector } from 'selectors/authSelectors'
 
 type FormType = {
   name: string

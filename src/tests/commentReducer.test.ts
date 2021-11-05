@@ -2,12 +2,12 @@ import commentReducer, {
   actions,
   InitialStateType,
   TextareaRequestThunk,
-} from './../redux/commentReducer'
-import { commentAPI } from '../DAL/API'
-import { ResultCodesEnum } from '../DAL/API'
-import { CommentType, ResponseType } from '../types/Types'
+} from 'redux/commentReducer'
+import { commentAPI } from 'DAL/API'
+import { ResultCodesEnum } from 'DAL/API'
+import { CommentType, ResponseType } from 'types/Types'
 
-jest.mock('../DAL/API')
+jest.mock('DAL/API')
 const commentAPIMock = commentAPI as jest.Mocked<typeof commentAPI>
 
 const response: ResponseType<Array<CommentType>> = {

@@ -1,8 +1,8 @@
 import { UserOutlined } from '@ant-design/icons'
 import { Avatar, Comment as Com } from 'antd'
 import React from 'react'
-import { CommentType } from '../../types/Types'
-import admin from '../../images/comment/admin.jpg'
+import { CommentType } from 'types/Types'
+import admin from 'images/comment/admin.jpg'
 
 const Comment: React.FC<CommentType> = React.memo(
   ({ name, message, isAdmin, date }) => {

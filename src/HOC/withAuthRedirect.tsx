@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { authSuccessSelector } from '../selectors/authSelectors'
+import { authSuccessSelector } from 'selectors/authSelectors'
 
 export function withAuthRedirect<WCP>(
   WrappedComponent: React.ComponentType<WCP>

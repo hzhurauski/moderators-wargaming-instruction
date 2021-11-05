@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './../../common/Common.module.css'
-import img1 from './../../../images/instagram/1.png'
-import img2 from './../../../images/instagram/2.png'
-import img3 from './../../../images/instagram/3.png'
-import img4 from './../../../images/instagram/4.png'
+import styles from 'components/common/Common.module.css'
+import img1 from 'images/instagram/1.png'
+import img2 from 'images/instagram/2.png'
+import img3 from 'images/instagram/3.png'
+import img4 from 'images/instagram/4.png'
 
 const InstagramSearch: React.FC = () => {
   return (

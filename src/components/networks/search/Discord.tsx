@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './../../common/Common.module.css'
-import img1 from './../../../images/discord/1.png'
-import img2 from './../../../images/discord/2.png'
-import img3 from './../../../images/discord/3.png'
-import img4 from './../../../images/discord/server_discord.png'
-import img5 from './../../../images/discord/disboard.png'
-import img6 from './../../../images/discord/top.png'
-import img7 from './../../../images/discord/discord_server.png'
+import styles from 'components/common/Common.module.css'
+import img1 from 'images/discord/1.png'
+import img2 from 'images/discord/2.png'
+import img3 from 'images/discord/3.png'
+import img4 from 'images/discord/server_discord.png'
+import img5 from 'images/discord/disboard.png'
+import img6 from 'images/discord/top.png'
+import img7 from 'images/discord/discord_server.png'
 
 const DiscordSearch: React.FC = () => {
   return (

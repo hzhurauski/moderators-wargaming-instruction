@@ -20,6 +20,12 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
+    'react/no-unescaped-entities': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/display-name': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/ban-types': 'off',
     'prettier/prettier': [
       'error',
       {

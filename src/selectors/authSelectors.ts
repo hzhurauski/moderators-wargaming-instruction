@@ -1,4 +1,4 @@
-import { AppStateType } from '../redux/redux'
+import { AppStateType } from 'redux/redux'
 
 export const authSuccessSelector = (state: AppStateType) => {
   return state.authPage.isAuth
