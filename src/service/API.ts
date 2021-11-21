@@ -12,11 +12,9 @@ export const instance = axios.create({
 })
 
 export const commentAPI = {
-  setComments() {
-    /* return instance.get<ResponseType<Array<CommentType>>>('comment').then(res => res.data) */
-    return {
-      comments: [],
-      resultCode: 0,
-    }
+  getComments() {
+    return instance
+      .get<ResponseType<Array<CommentType>>>('comments')
+      .then((res) => res.data)
   },
 }

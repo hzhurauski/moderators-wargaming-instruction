@@ -1,10 +1,10 @@
 import commentReducer, {
   actions,
   InitialStateType,
-  TextareaRequestThunk,
-} from 'redux/commentReducer'
-import { commentAPI } from 'DAL/API'
-import { ResultCodesEnum } from 'DAL/API'
+  getCommentsThunk,
+} from 'store/commentReducer'
+import { commentAPI } from 'service/API'
+import { ResultCodesEnum } from 'service/API'
 import { CommentType, ResponseType } from 'types/Types'
 
 jest.mock('DAL/API')
@@ -36,10 +36,10 @@ const getStateMock = jest.fn()
 beforeEach(() => {
   dispatchMock.mockClear()
   getStateMock.mockClear()
-  commentAPIMock.setComments.mockClear()
+  commentAPIMock.getCommentsThunk.mockClear()
 })
 
-commentAPIMock.setComments.mockReturnValue(Promise.resolve(response))
+commentAPIMock.getCommentsThunk.mockReturnValue(Promise.resolve(response))
 
 let state: InitialStateType
 
@@ -52,7 +52,7 @@ beforeEach(() => {
 })
 
 test('get comments', async () => {
-  const thunk = TextareaRequestThunk()
+  const thunk = getCommentsThunk()
 
   await thunk(dispatchMock, getStateMock, {})
 
@@ -66,7 +66,7 @@ test('change message', () => {
 })
 
 test('is submitting', () => {
-  const NewState = commentReducer(state, actions.commentSubmitting(true))
+  const NewState = commentReducer(state, actions.setIsSubmitting(true))
 
   expect(NewState.isSubmitting).toBeTruthy()
 })

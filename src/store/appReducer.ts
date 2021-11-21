@@ -1,4 +1,4 @@
-import { InferActionsType } from 'redux/redux'
+import { InferActionsType } from 'store'
 
 export type InitialStateType = typeof initialState
 type ActionsType = InferActionsType<typeof actions>
@@ -12,7 +12,7 @@ const appReducer = (
   action: ActionsType
 ): InitialStateType => {
   switch (action.type) {
-    case 'title':
+    case 'TITLE':
       return {
         ...state,
         title: action.title,
@@ -23,7 +23,7 @@ const appReducer = (
 }
 
 export const actions = {
-  changeTitle: (title: string) => ({ type: 'title', title } as const),
+  setTitle: (title: string) => ({ type: 'TITLE', title } as const),
 }
 
 export default appReducer

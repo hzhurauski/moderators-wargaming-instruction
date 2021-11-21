@@ -1,62 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserDataSelector } from 'selectors/authSelectors'
+import { userDataSelector } from 'selectors/authSelectors'
 import {
-  currentMessageSelector,
-  commentSubmittingSelector,
-  setCommentsSelector,
+  isSubmittingSelector,
+  commentsSelector,
 } from 'selectors/commentSelectors'
-import { actions } from 'redux/commentReducer'
+import { actions } from 'store/commentReducer'
 import { Form, Button, Input } from 'antd'
+import moment from 'moment'
 
 const { TextArea } = Input
 
 const CommentForm: React.FC = () => {
-  let date = new Date()
-  const dd = String(date.getDate()).padStart(2, '0')
-  const mm = String(date.getMonth() + 1).padStart(2, '0')
-  const yyyy = date.getFullYear()
-
-  //@ts-ignore
-  date = dd + '.' + mm + '.' + yyyy
-
+  const [message, setMessage] = useState<string>('')
   const dispatch = useDispatch()
-  const { name } = useSelector(setUserDataSelector)
-  const messagesCount = useSelector(setCommentsSelector)
-  const message = useSelector(currentMessageSelector)
-  const submitting = useSelector(commentSubmittingSelector)
+  const { name } = useSelector(userDataSelector)
+  const comments = useSelector(commentsSelector)
+  const isSubmitting = useSelector(isSubmittingSelector)
+
+  const date = moment().format('L')
 
   const handleSubmit = () => {
     if (!message) {
       return
     }
-    dispatch(actions.commentSubmitting(true))
+
+    dispatch(actions.setIsSubmitting(true))
     dispatch(
-      actions.createNewComment({
+      actions.setComment({
         name: name,
         message: message,
         isAdmin: false,
-        id: messagesCount.length + 1,
+        id: comments.length + 1,
         date: `${date}`,
       })
     )
-    dispatch(actions.commentSubmitting(false))
+    dispatch(actions.setIsSubmitting(false))
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(actions.changeMessage(e.target.value))
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const message = String(e.target.value)
+    setMessage(message)
   }
 
   return (
     <div>
       <Form.Item>
-        {/* @ts-ignore */}
         <TextArea rows={4} onChange={handleChange} value={message} />
       </Form.Item>
       <Form.Item>
         <Button
           htmlType="submit"
-          loading={submitting}
+          loading={isSubmitting}
           onClick={handleSubmit}
           type="primary"
         >

@@ -1,17 +1,12 @@
 import thunkMiddleware, { ThunkAction } from 'redux-thunk'
-import {
-  Action,
-  createStore,
-  applyMiddleware,
-  combineReducers,
-  compose,
-} from 'redux'
-import authReducer from './authReducer'
-import commentReducer from './commentReducer'
-import appReducer from './appReducer'
+import { Action, createStore, applyMiddleware, combineReducers } from 'redux'
+import authReducer from 'store/authReducer'
+import commentReducer from 'store/commentReducer'
+import appReducer from 'store/appReducer'
 
 type RootReducersType = typeof rootReducers
 export type AppStateType = ReturnType<RootReducersType>
+export type DispatchType = typeof store.dispatch
 export type InferActionsType<T> = T extends {
   [key: string]: (...args: any[]) => infer U
 }
@@ -30,7 +25,6 @@ const rootReducers = combineReducers({
   app: appReducer,
 })
 
-/* const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose */
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware))
 
 export default store

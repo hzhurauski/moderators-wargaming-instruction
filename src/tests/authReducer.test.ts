@@ -1,11 +1,11 @@
-import authReducer, { actions, InitialStateType } from 'redux/authReducer'
+import authReducer, { actions, InitialStateType } from 'store/authReducer'
 
 let state: InitialStateType
 
 beforeEach(() => {
   state = {
     isAuth: true,
-    currentPassword: '',
+    password: '',
     payload: {
       name: '',
       password: '',
@@ -15,15 +15,15 @@ beforeEach(() => {
 })
 
 test('is auth', () => {
-  const NewState = authReducer(state, actions.authSuccess(true))
+  const NewState = authReducer(state, actions.setIsAuth(true))
 
   expect(NewState.isAuth).toBeTruthy()
 })
 
 test('current password', () => {
-  const NewState = authReducer(state, actions.changePassword('some password'))
+  const NewState = authReducer(state, actions.setPassword('some password'))
 
-  expect(NewState.currentPassword).toBe('some password')
+  expect(NewState.password).toBe('some password')
 })
 
 test('get user data', () => {

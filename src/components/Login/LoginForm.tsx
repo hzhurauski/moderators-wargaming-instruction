@@ -1,9 +1,8 @@
 import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { actions } from 'redux/authReducer'
+import { useDispatch } from 'react-redux'
+import { actions } from 'store/authReducer'
 import { useState } from 'react'
-import { changePasswordSelector } from 'selectors/authSelectors'
 
 type FormType = {
   name: string
@@ -11,35 +10,34 @@ type FormType = {
   rememberMe: boolean
 }
 
-type CurrentFieldType = {
+type FieldType = {
   name?: string
   password?: string
 }
 
 const LoginForm = () => {
-  const password = useSelector(changePasswordSelector)
-  const [errorPassword, setErrorPassword] = useState(false)
+  const [password, setPassword] = useState<string>('')
+  const [isError, setIsError] = useState(false)
   const dispatch = useDispatch()
 
   const onFinish = ({ name, rememberMe }: FormType) => {
     if (password === 'Legal_Team') {
-      dispatch(actions.setUserData(name, password, rememberMe))
-      dispatch(actions.authSuccess(true))
-      if (rememberMe === true) {
-        localStorage.setItem('rememberMe', JSON.stringify(rememberMe))
-        localStorage.setItem('name', name)
+      dispatch(actions.setUserData(name, rememberMe))
+      dispatch(actions.setIsAuth(true))
+      if (rememberMe) {
+        const userData = JSON.stringify({ name, isRememberMe: rememberMe })
+        localStorage.setItem('userData', userData)
       }
     } else {
-      setErrorPassword(true)
+      setIsError(true)
     }
   }
 
-  const onChange = (currentField: CurrentFieldType) => {
-    if (currentField.password) {
-      setErrorPassword(false)
-      dispatch(actions.changePassword(currentField.password))
+  const onChange = ({ password }: FieldType) => {
+    if (password) {
+      setIsError(false)
+      setPassword(password)
     }
-    return
   }
 
   return (
@@ -47,7 +45,7 @@ const LoginForm = () => {
       onFinish={onFinish}
       name="normal_login"
       className="login-form"
-      initialValues={{ password: password, remember: true }}
+      initialValues={{ password }}
       onValuesChange={onChange}
     >
       <Form.Item
@@ -69,7 +67,7 @@ const LoginForm = () => {
           placeholder="Пароль"
         />
       </Form.Item>
-      {errorPassword && <div style={{ color: 'red' }}>Пароль неверный!</div>}
+      {isError && <div style={{ color: 'red' }}>Пароль неверный!</div>}
       <Form.Item>
         <Form.Item name="rememberMe" valuePropName="checked" noStyle>
           <Checkbox>Запомнить меня</Checkbox>

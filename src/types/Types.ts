@@ -1,4 +1,5 @@
-import { ResultCodesEnum } from 'DAL/API'
+import { ResultCodesEnum } from 'service/API'
+import { AppStateType } from 'store'
 
 export type CommentType = {
   name: string
@@ -29,4 +30,22 @@ export type UaType = {
 export type MdType = {
   maxPhoneWidth: number
   ua: string
+}
+
+export type LocationType = {
+  pathname: string
+  search: string
+  hash: string
+  state: AppStateType
+  key?: string
+}
+
+export type AppTitleType = {
+  pathname?: string
+  title: string
+}
+
+export type UserData = {
+  isRememberMe: boolean
+  name: string
 }

@@ -26,26 +26,6 @@ export const routes = [
         path: '/network/search/instagram',
         breadcrumbName: 'Instagram',
       },
-      /* {
-        path: '/ok',
-        breadcrumbName: 'Ok',
-      },
-      {
-        path: '/facebook',
-        breadcrumbName: 'Facebook',
-      },
-      {
-        path: '/youtube',
-        breadcrumbName: 'Youtube',
-      },
-      {
-        path: '/yandex',
-        breadcrumbName: 'Yandex',
-      },
-      {
-        path: '/tiktok',
-        breadcrumbName: 'TikTok',
-      } */
     ],
   },
 ]
