@@ -1,16 +1,9 @@
-import { AppStateType } from '../redux/redux'
+import { AppStateType } from 'store'
 
-
-export const setCommentsSelector = (state: AppStateType) => {
-    return state.comment.comments
+export const commentsSelector = (state: AppStateType) => {
+  return state.comment.comments
 }
 
-
-export const currentMessageSelector = (state: AppStateType) => {
-    return state.comment.message
-}
-
-
-export const commentSubmittingSelector = (state: AppStateType) => {
-    return state.comment.isSubmitting
+export const isSubmittingSelector = (state: AppStateType) => {
+  return state.comment.isSubmitting
 }

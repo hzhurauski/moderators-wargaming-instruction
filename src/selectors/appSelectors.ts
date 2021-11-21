@@ -1,6 +1,5 @@
-import { AppStateType } from '../redux/redux'
+import { AppStateType } from 'store'
 
-
-export const changeTitleSelector = (state: AppStateType) => {
-    return state.app.title
+export const titleSelector = (state: AppStateType) => {
+  return state.app.title
 }

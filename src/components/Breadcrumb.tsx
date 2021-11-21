@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { RoutesType } from '../types/Types'
-
+import { RoutesType } from 'types/Types'
 
 export const routes = [
   {
@@ -26,33 +25,17 @@ export const routes = [
       {
         path: '/network/search/instagram',
         breadcrumbName: 'Instagram',
-      }
-      /* {
-        path: '/ok',
-        breadcrumbName: 'Ok',
       },
-      {
-        path: '/facebook',
-        breadcrumbName: 'Facebook',
-      },
-      {
-        path: '/youtube',
-        breadcrumbName: 'Youtube',
-      },
-      {
-        path: '/yandex',
-        breadcrumbName: 'Yandex',
-      },
-      {
-        path: '/tiktok',
-        breadcrumbName: 'TikTok',
-      } */
-    ]
-  }
+    ],
+  },
 ]
 
-
-export const itemRender = (route: RoutesType, params: any, routes: Array<RoutesType>, paths: any) => {
+export const itemRender = (
+  route: RoutesType,
+  params: any,
+  routes: Array<RoutesType>,
+  paths: any
+) => {
   const last = routes.indexOf(route) === routes.length - 1
   return last ? (
     <span>{route.breadcrumbName}</span>
