@@ -8,12 +8,13 @@ import {
 import { actions } from 'store/commentReducer'
 import { Form, Button, Input } from 'antd'
 import moment from 'moment'
+import { DispatchType } from 'store'
 
 const { TextArea } = Input
 
 const CommentForm: React.FC = () => {
   const [message, setMessage] = useState<string>('')
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<DispatchType>()
   const { name } = useSelector(userDataSelector)
   const comments = useSelector(commentsSelector)
   const isSubmitting = useSelector(isSubmittingSelector)

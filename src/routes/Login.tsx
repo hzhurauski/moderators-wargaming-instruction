@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { isAuthSelector } from 'selectors/authSelectors'
-import LoginForm from '../components/login/LoginForm'
+import LoginForm from 'components/login/LoginForm'
 import styles from 'components/common/Common.module.css'
 
 const Login: React.FC = () => {

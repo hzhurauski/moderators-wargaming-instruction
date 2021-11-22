@@ -16,6 +16,7 @@ import { useLocation } from 'react-router'
 import { actions } from 'store/authReducer'
 import { Link } from 'react-router-dom'
 import ChatIcon from 'components/chat/ChatIcon'
+import { DispatchType } from 'store'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -26,7 +27,7 @@ type PropsType = {
 
 const ChatSider: FC<PropsType> = ({ ua }) => {
   const isAuth = useSelector(isAuthSelector)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<DispatchType>()
   const { pathname } = useLocation<LocationType>()
   const [collapsed, setCollapsed] = useState<boolean>(ua.mobile ? true : false)
 

@@ -1,11 +1,11 @@
 import { UserOutlined } from '@ant-design/icons'
-import { Avatar, Comment as Com } from 'antd'
+import { Avatar, Comment as CommentComponent } from 'antd'
 import React from 'react'
 import { CommentType } from 'types/Types'
 
 const Comment: React.FC<CommentType> = ({ name, message, isAdmin, date }) => {
   return (
-    <Com
+    <CommentComponent
       author={name}
       avatar={
         <Avatar
