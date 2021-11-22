@@ -3,6 +3,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
 import { actions } from 'store/authReducer'
 import { useState } from 'react'
+import { DispatchType } from 'store'
 
 type FormType = {
   name: string
@@ -18,7 +19,7 @@ type FieldType = {
 const LoginForm = () => {
   const [password, setPassword] = useState<string>('')
   const [isError, setIsError] = useState(false)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<DispatchType>()
 
   const onFinish = ({ name, rememberMe }: FormType) => {
     if (password === 'Legal_Team') {

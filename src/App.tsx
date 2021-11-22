@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useMemo } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
-import store from 'store'
+import store, { DispatchType } from 'store'
 import { BrowserRouter, useLocation } from 'react-router-dom'
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
@@ -23,7 +23,7 @@ type PropsType = {
 }
 
 const App: FC<PropsType> = ({ ua }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<DispatchType>()
   const { pathname } = useLocation<LocationType>()
   const isAuth = useSelector(isAuthSelector)
   const title = useSelector(titleSelector)
@@ -40,7 +40,7 @@ const App: FC<PropsType> = ({ ua }) => {
       }
     }
 
-    dispatch(getCommentsThunk())
+    getCommentsThunk()
   }, [dispatch])
 
   useEffect(() => {

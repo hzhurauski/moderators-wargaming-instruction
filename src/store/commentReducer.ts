@@ -39,7 +39,7 @@ const commentReducer = (
 }
 
 export const actions = {
-  getComments: (comments: Array<CommentType>) =>
+  setComments: (comments: Array<CommentType>) =>
     ({ type: 'COMMENTS', comments } as const),
   setComment: (comment: CommentType) => ({ type: 'COMMENT', comment } as const),
   setIsSubmitting: (isSubmitting: boolean) =>
@@ -49,7 +49,7 @@ export const actions = {
 export const getCommentsThunk = (): ThunkType => async (dispatch) => {
   const response = await commentAPI.getComments()
   if (response.resultCode === ResultCodesEnum.Success) {
-    dispatch(actions.getComments(response.comments))
+    dispatch(actions.setComments(response.comments))
   }
 }
 
