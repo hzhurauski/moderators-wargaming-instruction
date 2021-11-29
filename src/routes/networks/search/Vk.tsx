@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from 'components/common/Common.module.css'
+import styles from 'components/page/Page.module.css'
 import { Table } from 'antd'
 import { Link } from 'react-router-dom'
 import img1 from 'images/vk/world_of_tanks.png'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from 'components/common/Common.module.css'
+import styles from 'components/page/Page.module.css'
 import img1 from 'images/discord/1.png'
 import img2 from 'images/discord/2.png'
 import img3 from 'images/discord/3.png'

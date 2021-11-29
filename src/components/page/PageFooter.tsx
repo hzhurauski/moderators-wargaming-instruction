@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { isAuthSelector } from 'selectors/authSelectors'
 import Comments from 'components/comment/Comments'
 
-const ChatFooter: FC = () => {
+const PageFooter: FC = () => {
   const isAuth = useSelector(isAuthSelector)
 
   return (
@@ -20,4 +20,4 @@ const ChatFooter: FC = () => {
   )
 }
 
-export default ChatFooter
+export default PageFooter

@@ -10,7 +10,7 @@ type PropsType = {
   pathname: LocationType['pathname']
 }
 
-const ChatIcon: FC<PropsType> = ({ pathname }) => {
+const NetworkIcon: FC<PropsType> = ({ pathname }) => {
   switch (pathname) {
     case '/network/search/telegram':
       return <SendOutlined />
@@ -21,4 +21,4 @@ const ChatIcon: FC<PropsType> = ({ pathname }) => {
   }
 }
 
-export default ChatIcon
+export default NetworkIcon

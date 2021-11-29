@@ -9,11 +9,6 @@ export type CommentType = {
   date: string
 }
 
-export type RoutesType = {
-  path: string
-  breadcrumbName: string
-}
-
 export type ResponseType<M = []> = {
   comments: M
   resultCode: ResultCodesEnum

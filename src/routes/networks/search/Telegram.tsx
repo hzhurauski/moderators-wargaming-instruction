@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from 'components/common/Common.module.css'
+import styles from 'components/page/Page.module.css'
 import img1 from 'images/telegram/part.png'
 import img2 from 'images/telegram/window.png'
 import img3 from 'images/telegram/full.png'
