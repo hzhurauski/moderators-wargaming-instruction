@@ -15,7 +15,7 @@ import { isAuthSelector } from 'selectors/authSelectors'
 import { useLocation } from 'react-router'
 import { actions } from 'store/authReducer'
 import { Link } from 'react-router-dom'
-import ChatIcon from 'components/chat/ChatIcon'
+import NetworkIcon from 'components/network/Icon'
 import { DispatchType } from 'store'
 
 const { Sider } = Layout
@@ -25,7 +25,7 @@ type PropsType = {
   ua: UaType
 }
 
-const ChatSider: FC<PropsType> = ({ ua }) => {
+const PageSider: FC<PropsType> = ({ ua }) => {
   const isAuth = useSelector(isAuthSelector)
   const dispatch = useDispatch<DispatchType>()
   const { pathname } = useLocation<LocationType>()
@@ -70,7 +70,7 @@ const ChatSider: FC<PropsType> = ({ ua }) => {
         {isAuth && (
           <SubMenu
             key="sub1"
-            icon={<ChatIcon pathname={pathname} />}
+            icon={<NetworkIcon pathname={pathname} />}
             title="Социальные сети"
           >
             <SubMenu key="sub2" icon={<SearchOutlined />} title="Поиск">
@@ -201,4 +201,4 @@ const ChatSider: FC<PropsType> = ({ ua }) => {
   )
 }
 
-export default ChatSider
+export default PageSider

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { RoutesType } from 'types/Types'
+import { RoutesType } from 'types/routes/RoutesTypes'
 
 export const routes = [
   {

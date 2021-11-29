@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useMemo } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import store, { DispatchType } from 'store'
-import { BrowserRouter, useLocation } from 'react-router-dom'
+import { BrowserRouter, useLocation, Redirect } from 'react-router-dom'
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
 import { withUserAgent } from 'react-useragent'
@@ -12,10 +12,10 @@ import { LocationType, UaType, UserData } from 'types/Types'
 import { actions as appActions } from 'store/appReducer'
 import { actions as authActions } from 'store/authReducer'
 import { getCommentsThunk } from 'store/commentReducer'
-import ChatContent from 'components/chat/ChatContent'
-import ChatFooter from 'components/chat/ChatFooter'
-import ChatHeader from 'components/chat/ChatHeader'
-import ChatSider from 'components/chat/ChatSider'
+import PageContent from 'components/page/PageContent'
+import PageFooter from 'components/page/PageFooter'
+import PageHeader from 'components/page/PageHeader'
+import PageSider from 'components/page/PageSider'
 import { setTitleHelper } from 'helpers/helper'
 
 type PropsType = {
@@ -48,6 +48,12 @@ const App: FC<PropsType> = ({ ua }) => {
   }, [pathname])
 
   useEffect(() => {
+    if (isAuth) {
+      localStorage.setItem('pathname', pathname)
+    }
+  }, [isAuth, pathname])
+
+  useEffect(() => {
     const title = setTitleHelper(pathname)
     dispatch(appActions.setTitle(title))
   }, [pathname, dispatch])
@@ -59,11 +65,11 @@ const App: FC<PropsType> = ({ ua }) => {
   return useMemo(() => {
     return (
       <Layout style={{ minHeight: '100vh', minWidth: '690px' }}>
-        <ChatSider ua={ua} />
+        <PageSider ua={ua} />
         <Layout className="site-layout">
-          <ChatHeader />
-          <ChatContent />
-          <ChatFooter />
+          <PageHeader />
+          <PageContent />
+          <PageFooter />
         </Layout>
       </Layout>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Common.module.css'
+import styles from 'components/page/Page.module.css'
 
 const Preloader: React.FC = () => {
   return (

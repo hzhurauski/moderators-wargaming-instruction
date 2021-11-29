@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { commentsSelector } from 'selectors/commentSelectors'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
-import styles from 'components/common/Common.module.css'
+import styles from 'components/page/Page.module.css'
 
 const Textareas: React.FC = React.memo(() => {
   const comments = useSelector(commentsSelector)

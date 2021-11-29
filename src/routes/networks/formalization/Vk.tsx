@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from 'components/common/Common.module.css'
+import styles from 'components/page/Page.module.css'
 
 const VkFormalization: React.FC = () => {
   return (
