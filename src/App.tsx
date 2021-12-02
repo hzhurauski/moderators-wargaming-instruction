@@ -73,7 +73,7 @@ const App: FC<PropsType> = ({ ua }) => {
         </Layout>
       </Layout>
     )
-  }, [isAuth, pathname])
+  }, [])
 }
 
 const MainApp: React.FC<PropsType> = ({ ua }) => {

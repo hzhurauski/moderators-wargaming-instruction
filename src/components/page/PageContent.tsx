@@ -3,11 +3,11 @@ import { Content } from 'antd/lib/layout/layout'
 import { itemRender, routes } from 'components/Breadcrumb'
 import { FC, useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import { Redirect, Route, Switch, useLocation } from 'react-router'
+import { Redirect, useLocation } from 'react-router'
 import { isAuthSelector } from 'selectors/authSelectors'
 import { LocationType } from 'types/Types'
-import { authorizedRoutes, unauthorizedRoutes } from 'routes'
 import { RoutesType } from 'types/routes/RoutesTypes'
+import PageRoutes from 'components/page/PageRoutes'
 
 const PageContent: FC = () => {
   const { pathname } = useLocation<LocationType>()
@@ -67,15 +67,7 @@ const PageContent: FC = () => {
         className="site-layout-background"
         style={{ padding: 24, minHeight: 360 }}
       >
-        <Switch>
-          {isAuth
-            ? authorizedRoutes.map((routes) => {
-                return <Route {...routes} key={routes.name} />
-              })
-            : unauthorizedRoutes.map((routes) => {
-                return <Route {...routes} key={routes.name} />
-              })}
-        </Switch>
+        <PageRoutes />
         {lastPathname && <Redirect to={lastPathname} />}
       </div>
     </Content>
