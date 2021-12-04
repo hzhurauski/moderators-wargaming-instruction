@@ -1,28 +1,23 @@
-import React, { FC, useEffect, useMemo } from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
-import store, { DispatchType } from 'store'
-import { BrowserRouter, useLocation, Redirect } from 'react-router-dom'
 import { Layout } from 'antd'
 import 'antd/dist/antd.css'
-import { withUserAgent } from 'react-useragent'
 import CatchError from 'components/CatchError'
-import { titleSelector } from 'selectors/appSelectors'
-import { isAuthSelector } from 'selectors/authSelectors'
-import { LocationType, UaType, UserData } from 'types/Types'
-import { actions as appActions } from 'store/appReducer'
-import { actions as authActions } from 'store/authReducer'
-import { getCommentsThunk } from 'store/commentReducer'
 import PageContent from 'components/page/PageContent'
 import PageFooter from 'components/page/PageFooter'
 import PageHeader from 'components/page/PageHeader'
 import PageSider from 'components/page/PageSider'
 import { setTitleHelper } from 'helpers/helper'
+import React, { FC, useEffect } from 'react'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { BrowserRouter, useLocation } from 'react-router-dom'
+import { titleSelector } from 'selectors/appSelectors'
+import { isAuthSelector } from 'selectors/authSelectors'
+import store, { DispatchType } from 'store'
+import { actions as appActions } from 'store/appReducer'
+import { actions as authActions } from 'store/authReducer'
+import { getCommentsThunk } from 'store/commentReducer'
+import { LocationType, UserData } from 'types/Types'
 
-type PropsType = {
-  ua: UaType
-}
-
-const App: FC<PropsType> = ({ ua }) => {
+const App: FC = () => {
   const dispatch = useDispatch<DispatchType>()
   const { pathname } = useLocation<LocationType>()
   const isAuth = useSelector(isAuthSelector)
@@ -62,30 +57,28 @@ const App: FC<PropsType> = ({ ua }) => {
     document.title = title
   }, [title])
 
-  return useMemo(() => {
-    return (
-      <Layout style={{ minHeight: '100vh', minWidth: '690px' }}>
-        <PageSider ua={ua} />
-        <Layout className="site-layout">
-          <PageHeader />
-          <PageContent />
-          <PageFooter />
-        </Layout>
+  return (
+    <Layout style={{ minHeight: '100vh', minWidth: '690px' }}>
+      <PageSider />
+      <Layout className="site-layout">
+        <PageHeader />
+        <PageContent />
+        <PageFooter />
       </Layout>
-    )
-  }, [])
+    </Layout>
+  )
 }
 
-const MainApp: React.FC<PropsType> = ({ ua }) => {
+const MainApp: React.FC = () => {
   return (
     <CatchError>
       <BrowserRouter>
         <Provider store={store}>
-          <App ua={ua} />
+          <App />
         </Provider>
       </BrowserRouter>
     </CatchError>
   )
 }
 
-export default withUserAgent(MainApp)
+export default MainApp

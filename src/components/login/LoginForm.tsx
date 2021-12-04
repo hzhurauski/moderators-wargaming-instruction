@@ -1,9 +1,12 @@
-import { Form, Input, Button, Checkbox } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { Form } from 'antd'
 import { useDispatch } from 'react-redux'
 import { actions } from 'store/authReducer'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { DispatchType } from 'store'
+import LoginPassword from 'components/login/LoginPassword'
+import LoginIsRemeberMe from 'components/login/LoginIsRememberMe'
+import LoginButton from 'components/login/LoginButton'
+import LoginName from 'components/login/LoginName'
 
 type FormType = {
   name: string
@@ -21,18 +24,21 @@ const LoginForm = () => {
   const [isError, setIsError] = useState(false)
   const dispatch = useDispatch<DispatchType>()
 
-  const onFinish = ({ name, rememberMe }: FormType) => {
-    if (password === 'Legal_Team') {
-      dispatch(actions.setUserData(name, rememberMe))
-      dispatch(actions.setIsAuth(true))
-      if (rememberMe) {
-        const userData = JSON.stringify({ name, isRememberMe: rememberMe })
-        localStorage.setItem('userData', userData)
+  const onFinish = useCallback(
+    ({ name, rememberMe }: FormType) => {
+      if (password === 'Legal_Team') {
+        dispatch(actions.setUserData(name, rememberMe))
+        dispatch(actions.setIsAuth(true))
+        if (rememberMe) {
+          const userData = JSON.stringify({ name, isRememberMe: rememberMe })
+          localStorage.setItem('userData', userData)
+        }
+      } else {
+        setIsError(true)
       }
-    } else {
-      setIsError(true)
-    }
-  }
+    },
+    [password, dispatch]
+  )
 
   const onChange = ({ password }: FieldType) => {
     if (password) {
@@ -49,36 +55,11 @@ const LoginForm = () => {
       initialValues={{ password }}
       onValuesChange={onChange}
     >
-      <Form.Item
-        name="name"
-        rules={[{ required: true, message: 'Введите, пожалуйста, имя' }]}
-      >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Ваше имя"
-        />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[{ required: true, message: 'Пароль обязателен!' }]}
-      >
-        <Input.Password
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Пароль"
-        />
-      </Form.Item>
+      <LoginName />
+      <LoginPassword />
       {isError && <div style={{ color: 'red' }}>Пароль неверный!</div>}
-      <Form.Item>
-        <Form.Item name="rememberMe" valuePropName="checked" noStyle>
-          <Checkbox>Запомнить меня</Checkbox>
-        </Form.Item>
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
-          Отправить
-        </Button>
-      </Form.Item>
+      <LoginIsRemeberMe />
+      <LoginButton />
     </Form>
   )
 }

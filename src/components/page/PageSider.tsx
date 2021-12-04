@@ -2,6 +2,7 @@ import { Layout } from 'antd'
 import { UaType } from 'types/Types'
 import { FC, useCallback, useState } from 'react'
 import SiderMenu from 'components/sider/SiderMenu'
+import { withUserAgent } from 'react-useragent'
 
 const { Sider } = Layout
 
@@ -24,4 +25,4 @@ const PageSider: FC<PropsType> = ({ ua }) => {
   )
 }
 
-export default PageSider
+export default withUserAgent(PageSider)
