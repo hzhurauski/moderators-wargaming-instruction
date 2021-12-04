@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userDataSelector } from 'selectors/authSelectors'
 import {
@@ -6,13 +6,14 @@ import {
   commentsSelector,
 } from 'selectors/commentSelectors'
 import { actions } from 'store/commentReducer'
-import { Form, Button, Input } from 'antd'
+import { Form, Input } from 'antd'
 import moment from 'moment'
 import { DispatchType } from 'store'
+import CommentButton from 'components/comment/CommentButton'
 
 const { TextArea } = Input
 
-const CommentForm: React.FC = () => {
+const CommentForm: FC = () => {
   const [message, setMessage] = useState<string>('')
   const dispatch = useDispatch<DispatchType>()
   const { name } = useSelector(userDataSelector)
@@ -21,7 +22,7 @@ const CommentForm: React.FC = () => {
 
   const date = moment().format('L')
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     if (!message) {
       return
     }
@@ -37,28 +38,23 @@ const CommentForm: React.FC = () => {
       })
     )
     dispatch(actions.setIsSubmitting(false))
-  }
+    setMessage('')
+  }, [dispatch, message, name, comments])
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const message = String(e.target.value)
-    setMessage(message)
-  }
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const message = String(e.target.value)
+      setMessage(message)
+    },
+    []
+  )
 
   return (
     <div>
       <Form.Item>
         <TextArea rows={4} onChange={handleChange} value={message} />
       </Form.Item>
-      <Form.Item>
-        <Button
-          htmlType="submit"
-          loading={isSubmitting}
-          onClick={handleSubmit}
-          type="primary"
-        >
-          Добавить комментарий
-        </Button>
-      </Form.Item>
+      <CommentButton isSubmitting={isSubmitting} handleSubmit={handleSubmit} />
     </div>
   )
 }

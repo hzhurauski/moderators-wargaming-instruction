@@ -5,12 +5,11 @@ import {
   FacebookOutlined,
 } from '@ant-design/icons'
 import { FC } from 'react'
+import { useLocation } from 'react-router'
 
-type PropsType = {
-  pathname: LocationType['pathname']
-}
+const NetworkIcon: FC = () => {
+  const { pathname } = useLocation<LocationType>()
 
-const NetworkIcon: FC<PropsType> = ({ pathname }) => {
   switch (pathname) {
     case '/network/search/telegram':
       return <SendOutlined />

@@ -1,3 +1,13 @@
+import {
+  CloseOutlined,
+  GithubOutlined,
+  HomeOutlined,
+  MenuOutlined,
+} from '@ant-design/icons'
+import NetworkIcon from 'components/network/NetworkIcon'
+import MenuMyContacts from 'components/menu/MenuMyContacts'
+import MenuNetworks from 'components/menu/MenuNetworks'
+import MenuWargamingProjects from 'components/menu/MenuWargamingProject'
 import { AppTitleType } from 'types/Types'
 
 const appTitle = [
@@ -22,7 +32,7 @@ export const setTitleHelper = (pathname: string) => {
   return title
 }
 
-export const searchNetworkData = [
+export const searchNetworks = [
   {
     link: '/network/search/vk',
     socialNetwork: 'Vk',
@@ -41,14 +51,14 @@ export const searchNetworkData = [
   },
 ]
 
-export const formalizationNetworkData = [
+export const formalizationNetworks = [
   {
     link: '/network/formalization/vk',
     socialNetwork: 'Vk',
   },
 ]
 
-export const wargamingProject = [
+export const wargamingProjects = [
   {
     href: 'https://wargaming.com/ru/games/world-of-tanks',
     projectName: 'World of Tanks',
@@ -91,6 +101,37 @@ export const myContacts = [
   {
     href: 'http://www.facebook.com/profile.php?id=100014898465280',
     socialNetwork: 'Facebook',
+  },
+]
+
+export const authorizedMenuItems = [
+  {
+    link: '/login',
+    Icon: CloseOutlined,
+    title: 'Выйти',
+  },
+  {
+    link: '/home',
+    Icon: HomeOutlined,
+    title: 'Введение',
+  },
+]
+
+export const authorizedSubMenuItems = [
+  {
+    Icon: NetworkIcon,
+    title: 'Социальные сети',
+    Children: MenuNetworks,
+  },
+  {
+    Icon: MenuOutlined,
+    title: 'Наши проекты',
+    Children: MenuWargamingProjects,
+  },
+  {
+    Icon: GithubOutlined,
+    title: 'Мои контакты',
+    Children: MenuMyContacts,
   },
 ]
 
