@@ -1,6 +1,7 @@
 export type RoutesType = {
   path: string
   breadcrumbName: string
+  children?: RoutesType[]
 }
 
 export type AuthorizedRoutesType = {

@@ -15,8 +15,8 @@ type FormType = {
 }
 
 type FieldType = {
-  name?: string
-  password?: string
+  name: string
+  password: string
 }
 
 const LoginForm = () => {
@@ -40,12 +40,12 @@ const LoginForm = () => {
     [password, dispatch]
   )
 
-  const onChange = ({ password }: FieldType) => {
+  const onChange = useCallback(({ password }: Partial<FieldType>) => {
     if (password) {
       setIsError(false)
       setPassword(password)
     }
-  }
+  }, [])
 
   return (
     <Form

@@ -18,12 +18,7 @@ const SiderAuthorizedItems = () => {
   }, [dispatch])
 
   return (
-    <Menu
-      theme="dark"
-      defaultSelectedKeys={['/login']}
-      selectedKeys={[pathname]}
-      mode="inline"
-    >
+    <Menu theme="dark" selectedKeys={[pathname]} mode="inline">
       {authorizedMenuItems.map(({ title, Icon, link }) => {
         return (
           <Menu.Item
