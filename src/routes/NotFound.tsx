@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styles from 'components/page/Page.module.css'
 
-const NotFound: React.FC = () => {
+const NotFound: FC = () => {
   return (
     <div className={styles.main}>
       <h1>Страница не найдена</h1>

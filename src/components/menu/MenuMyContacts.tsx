@@ -1,4 +1,4 @@
-import { myContacts } from 'helpers/helper'
+import { myContacts } from 'data/data'
 import { FC, useMemo } from 'react'
 import { Menu } from 'antd'
 
@@ -8,7 +8,7 @@ const MenuMyContacts: FC = () => {
       <>
         {myContacts.map(({ href, socialNetwork }) => {
           return (
-            <Menu.Item key={socialNetwork}>
+            <Menu.Item key={href}>
               <a href={href} target="_blank" rel="noreferrer">
                 {socialNetwork}
               </a>

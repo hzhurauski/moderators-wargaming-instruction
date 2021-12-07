@@ -1,4 +1,4 @@
-import { wargamingProjects } from 'helpers/helper'
+import { wargamingProjects } from 'data/data'
 import { Menu } from 'antd'
 import { FC, useMemo } from 'react'
 
@@ -8,7 +8,7 @@ const MenuWargamingProjects: FC = () => {
       <>
         {wargamingProjects.map(({ href, projectName }) => {
           return (
-            <Menu.Item key={projectName}>
+            <Menu.Item key={href}>
               <a href={href} target="_blank" rel="noreferrer">
                 {projectName}
               </a>

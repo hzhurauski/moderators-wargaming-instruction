@@ -3,9 +3,10 @@ import commentReducer, {
   InitialStateType,
   getCommentsThunk,
 } from 'store/commentReducer'
-import { commentAPI } from 'service/API'
-import { ResultCodesEnum } from 'service/API'
-import { CommentType, ResponseType } from 'types/Types'
+import { commentAPI } from 'service'
+import { ResultCodesEnum } from 'service'
+import { CommentType } from 'types/comment/CommentType'
+import { ResponseType } from 'types/service/ServiceType'
 
 jest.mock('DAL/API')
 const commentAPIMock = commentAPI as jest.Mocked<typeof commentAPI>

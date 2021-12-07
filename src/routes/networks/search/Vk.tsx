@@ -1,18 +1,18 @@
-import React from 'react'
-import styles from 'components/page/Page.module.css'
 import { Table } from 'antd'
-import { Link } from 'react-router-dom'
-import img1 from 'images/vk/world_of_tanks.png'
-import img2 from 'images/vk/wot.png'
-import img3 from 'images/vk/ворлд_оф_танкс.png'
-import img4 from 'images/vk/word_of_tanks.png'
-import img5 from 'images/vk/worl_of_tanks.png'
-import ColumnGroup from 'antd/lib/table/ColumnGroup'
 import Column from 'antd/lib/table/Column'
-import { tableData } from 'helpers/helper'
+import ColumnGroup from 'antd/lib/table/ColumnGroup'
 import Image from 'components/Image'
+import styles from 'components/page/Page.module.css'
+import { tableData } from 'data/data'
+import request from 'images/vk/request.png'
+import word_of_tanks from 'images/vk/word_of_tanks.png'
+import world_of_tanks from 'images/vk/world_of_tanks.png'
+import worl_of_tanks from 'images/vk/worl_of_tanks.png'
+import wot from 'images/vk/wot.png'
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-const VkSearch: React.FC = () => {
+const VkSearch: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Инструкция по поиску - VK:</h2>
@@ -76,13 +76,18 @@ const VkSearch: React.FC = () => {
         скриншотах ниже, выдает различные от другого слова нарушения.
       </p>
       <div>
-        <Image width="675" height="403" src={img1} alt="world of tanks" />
+        <Image
+          width="675"
+          height="403"
+          src={world_of_tanks}
+          alt="world of tanks"
+        />
       </div>
       <div>
-        <Image width="700" height="850" src={img2} alt="wot" />
+        <Image width="700" height="850" src={wot} alt="wot" />
       </div>
       <div>
-        <Image width="678" height="810" src={img3} alt="ворлд оф танкс" />
+        <Image width="678" height="810" src={request} alt="ворлд оф танкс" />
       </div>
       <h4> Преднамеренный допуск ошибок </h4>
       <p>
@@ -93,10 +98,20 @@ const VkSearch: React.FC = () => {
         вместо привычного "аккаунт" использовать "оккаунт".
       </p>
       <div>
-        <Image width="678" height="439" src={img4} alt="word of tanks" />
+        <Image
+          width="678"
+          height="439"
+          src={word_of_tanks}
+          alt="word of tanks"
+        />
       </div>
       <div>
-        <Image width="678" height="465" src={img5} alt="worl of tanks" />
+        <Image
+          width="678"
+          height="465"
+          src={worl_of_tanks}
+          alt="worl of tanks"
+        />
       </div>
       <p>
         Такая тактика по началу может показаться несколько сложной, но если

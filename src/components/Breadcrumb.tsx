@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { RoutesType } from 'types/routes/RoutesTypes'
+import { RoutesType } from 'types/routes/RoutesType'
 
 export const itemRender = (
   route: RoutesType,
-  params: any,
+  params: unknown,
   routes: Array<RoutesType>,
-  paths: any
+  paths: string[]
 ) => {
   const last = routes.indexOf(route) === routes.length - 1
   return last ? (

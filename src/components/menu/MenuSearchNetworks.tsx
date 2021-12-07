@@ -1,4 +1,4 @@
-import { searchNetworks } from 'helpers/helper'
+import { searchNetworks } from 'data/data'
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMemo } from 'react'

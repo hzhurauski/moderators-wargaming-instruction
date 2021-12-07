@@ -1,7 +1,7 @@
-import React from 'react'
 import styles from 'components/page/Page.module.css'
+import React, { FC } from 'react'
 
-const Preloader: React.FC = () => {
+const Preloader: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Загрузка...</h2>

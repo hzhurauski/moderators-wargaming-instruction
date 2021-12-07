@@ -1,12 +1,12 @@
 import { Breadcrumb } from 'antd'
 import { Route } from 'antd/lib/breadcrumb/Breadcrumb'
 import { itemRender } from 'components/Breadcrumb'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router'
-import { RoutesType } from 'types/routes/RoutesTypes'
+import { RoutesType } from 'types/routes/RoutesType'
 import { LocationType } from 'types/Types'
 
-const PageBreadcrumb = () => {
+const PageBreadcrumb: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<RoutesType[]>([])
   const { pathname } = useLocation<LocationType>()
 

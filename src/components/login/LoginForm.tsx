@@ -1,7 +1,7 @@
 import { Form } from 'antd'
 import { useDispatch } from 'react-redux'
 import { actions } from 'store/authReducer'
-import { useCallback, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { DispatchType } from 'store'
 import LoginPassword from 'components/login/LoginPassword'
 import LoginIsRemeberMe from 'components/login/LoginIsRememberMe'
@@ -19,7 +19,7 @@ type FieldType = {
   password: string
 }
 
-const LoginForm = () => {
+const LoginForm: FC = () => {
   const [password, setPassword] = useState<string>('')
   const [isError, setIsError] = useState(false)
   const dispatch = useDispatch<DispatchType>()

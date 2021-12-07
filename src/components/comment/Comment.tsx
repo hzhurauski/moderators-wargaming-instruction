@@ -1,9 +1,9 @@
 import { UserOutlined } from '@ant-design/icons'
 import { Avatar, Comment as CommentComponent } from 'antd'
-import React, { useMemo } from 'react'
-import { CommentType } from 'types/Types'
+import React, { FC, useMemo } from 'react'
+import { CommentType } from 'types/comment/CommentType'
 
-const Comment: React.FC<CommentType> = ({ name, message, isAdmin, date }) => {
+const Comment: FC<CommentType> = ({ name, message, isAdmin, date }) => {
   return useMemo(() => {
     return (
       <CommentComponent

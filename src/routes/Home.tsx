@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { withAuthRedirect } from 'hoc/withAuthRedirect'
 import { userDataSelector } from 'selectors/authSelectors'
 import styles from 'components/page/Page.module.css'
 import { Link } from 'react-router-dom'
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const { name } = useSelector(userDataSelector)
+
   return (
     <div className={styles.main}>
       <h2> Добро пожаловать на сайт, {name}! </h2>
       <p>
-        {' '}
         Этот сайт был разработан для ознакомления модераторов с подробными
         инструкциями, которые подойдут как начинающему представителю команды
         волонтеров Wargaming, так более продвинутому модератору, который
@@ -28,11 +28,11 @@ const Home: React.FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Лицензионного Соглашения Wargaming в социальных сетях.{' '}
+          Лицензионного Соглашения Wargaming в социальных сетях
         </a>
+        .
       </p>
       <p>
-        {' '}
         На данный момент имеются 4 полные инструкции:{' '}
         <Link to="/network/search/vk">Vk</Link>,{' '}
         <Link to="/network/search/telegram">Telegram</Link>,{' '}
@@ -46,18 +46,16 @@ const Home: React.FC = () => {
         Вот-вот мы научимся пользоваться таблицей, в которой я представил свои
         лучшие связки запросов, разработанные за все свое время нахождения в
         Legal Team. В процессе создания инструкций я попытался влить весь свой
-        опыт, и, надеюсь, что не зря :){' '}
+        опыт, и, надеюсь, что не зря :)
       </p>
       <p>
-        {' '}
         Если у Вас остались какие-то вопросы или пожелания по доработке, можно
         связаться со мной напрямую через контакты, либо же оставить комментарий,
-        который я обязательно просмотрю.{' '}
+        который я обязательно просмотрю.
       </p>
       <h4>
-        {' '}
         С введением закончили -{' '}
-        <Link to="/network/search/vk">пора перейти к делу!</Link>{' '}
+        <Link to="/network/search/vk">пора перейти к делу!</Link>
       </h4>
     </div>
   )

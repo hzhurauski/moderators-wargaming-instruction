@@ -5,7 +5,7 @@ import PageContent from 'components/page/PageContent'
 import PageFooter from 'components/page/PageFooter'
 import PageHeader from 'components/page/PageHeader'
 import PageSider from 'components/page/PageSider'
-import { setTitleHelper } from 'helpers/helper'
+import { setTitleHelper } from 'helpers'
 import React, { FC, useEffect } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, useLocation } from 'react-router-dom'
@@ -69,7 +69,7 @@ const App: FC = () => {
   )
 }
 
-const MainApp: React.FC = () => {
+const MainApp: FC = () => {
   return (
     <CatchError>
       <BrowserRouter>

@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from 'components/page/Page.module.css'
-import img1 from 'images/discord/1.png'
-import img2 from 'images/discord/2.png'
-import img3 from 'images/discord/3.png'
-import img4 from 'images/discord/server_discord.png'
-import img5 from 'images/discord/disboard.png'
-import img6 from 'images/discord/top.png'
-import img7 from 'images/discord/discord_server.png'
 import Image from 'components/Image'
+import styles from 'components/page/Page.module.css'
+import home from 'images/discord/home.png'
+import search from 'images/discord/search.png'
+import channels from 'images/discord/channels.png'
+import disboard from 'images/discord/disboard.png'
+import discord_server from 'images/discord/discord_server.png'
+import server_discord from 'images/discord/server_discord.png'
+import top from 'images/discord/top.png'
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-const DiscordSearch: React.FC = () => {
+const DiscordSearch: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Инструкция по поиску - Discord:</h2>
@@ -43,13 +43,13 @@ const DiscordSearch: React.FC = () => {
         подойдет следующий способ.
       </p>
       <div>
-        <Image width="750" height="380" src={img1} alt="" />
+        <Image width="750" height="380" src={home} alt="" />
       </div>
       <div>
-        <Image width="750" height="250" src={img2} alt="" />
+        <Image width="750" height="250" src={search} alt="" />
       </div>
       <div>
-        <Image width="500" height="320" src={img3} alt="" />
+        <Image width="500" height="320" src={channels} alt="" />
       </div>
       <h4> Поиск через сторонние ресурсы </h4>
       <p>
@@ -83,16 +83,16 @@ const DiscordSearch: React.FC = () => {
         . Можно попробовать каждый из них и найти для себя найболее эффективный.
       </p>
       <div>
-        <Image width="750" height="150" src={img4} alt="" />
+        <Image width="750" height="150" src={server_discord} alt="" />
       </div>
       <div>
-        <Image width="600" height="500" src={img5} alt="" />
+        <Image width="600" height="500" src={disboard} alt="" />
       </div>
       <div>
-        <Image width="750" height="200" src={img6} alt="" />
+        <Image width="750" height="200" src={top} alt="" />
       </div>
       <div>
-        <Image width="750" height="150" src={img7} alt="" />
+        <Image width="750" height="150" src={discord_server} alt="" />
       </div>
       <h4> FAQ </h4>
       <p>

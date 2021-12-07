@@ -2,8 +2,7 @@ import { PureComponent, ErrorInfo } from 'react'
 import styles from 'components/page/Page.module.css'
 
 class CatchError extends PureComponent<{}, { hasError: boolean }> {
-  //@ts-ignore todo
-  constructor(props) {
+  constructor(props: Readonly<{}> | {}) {
     super(props)
     this.state = { hasError: false }
   }

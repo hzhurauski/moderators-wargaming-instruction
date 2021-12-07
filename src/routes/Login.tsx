@@ -1,11 +1,8 @@
-import React, { useEffect, useMemo } from 'react'
-import { useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import { isAuthSelector } from 'selectors/authSelectors'
 import LoginForm from 'components/login/LoginForm'
 import styles from 'components/page/Page.module.css'
+import React, { FC, useMemo } from 'react'
 
-const Login: React.FC = () => {
+const Login: FC = () => {
   return useMemo(() => {
     return (
       <div className={styles.main}>

@@ -1,17 +1,8 @@
-import { ResultCodesEnum } from 'service/API'
 import { AppStateType } from 'store'
 
-export type CommentType = {
-  name: string
-  message: string
-  isAdmin: boolean
-  id?: number
-  date: string
-}
-
-export type ResponseType<M = []> = {
-  comments: M
-  resultCode: ResultCodesEnum
+export type MdType = {
+  maxPhoneWidth: number
+  ua: string
 }
 
 export type UaType = {
@@ -22,22 +13,12 @@ export type UaType = {
   tablet: null | string
 }
 
-export type MdType = {
-  maxPhoneWidth: number
-  ua: string
-}
-
 export type LocationType = {
   pathname: string
   search: string
   hash: string
   state: AppStateType
   key?: string
-}
-
-export type AppTitleType = {
-  pathname?: string
-  title: string
 }
 
 export type UserData = {

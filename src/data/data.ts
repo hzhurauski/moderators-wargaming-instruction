@@ -4,13 +4,13 @@ import {
   HomeOutlined,
   MenuOutlined,
 } from '@ant-design/icons'
-import NetworkIcon from 'components/network/NetworkIcon'
 import MenuMyContacts from 'components/menu/MenuMyContacts'
 import MenuNetworks from 'components/menu/MenuNetworks'
 import MenuWargamingProjects from 'components/menu/MenuWargamingProject'
-import { AppTitleType } from 'types/Types'
+import NetworkIcon from 'components/network/NetworkIcon'
+import { AppTitleType } from 'types/app/AppType'
 
-const appTitle = [
+export const appTitle = [
   { pathname: '/home', title: 'Введение' },
   { pathname: '/login', title: 'Aутентификация' },
   { pathname: '/network/search/vk', title: 'Поиск - Vk' },
@@ -19,18 +19,6 @@ const appTitle = [
   { pathname: '/network/search/instagram', title: 'Поиск - Instagram' },
   { pathname: '/network/formalization/vk', title: 'Оформление - Vk' },
 ] as AppTitleType[]
-
-export const setTitleHelper = (pathname: string) => {
-  const defaultTitle = {
-    title: 'Страница не найдена',
-  }
-
-  const { title } =
-    (appTitle.find((t) => t.pathname === pathname) as AppTitleType) ||
-    defaultTitle
-
-  return title
-}
 
 export const searchNetworks = [
   {

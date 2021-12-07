@@ -1,5 +1,5 @@
-import { commentAPI, ResultCodesEnum } from 'service/API'
-import { CommentType } from 'types/Types'
+import { commentAPI, ResultCodesEnum } from 'service'
+import { CommentType } from 'types/comment/CommentType'
 import { BaseThunkType, InferActionsType } from 'store'
 
 export type InitialStateType = typeof initialState
@@ -47,9 +47,9 @@ export const actions = {
 }
 
 export const getCommentsThunk = (): ThunkType => async (dispatch) => {
-  const response = await commentAPI.getComments()
-  if (response.resultCode === ResultCodesEnum.Success) {
-    dispatch(actions.setComments(response.comments))
+  const { resultCode, comments } = await commentAPI.getComments()
+  if (resultCode === ResultCodesEnum.Success) {
+    dispatch(actions.setComments(comments))
   }
 }
 

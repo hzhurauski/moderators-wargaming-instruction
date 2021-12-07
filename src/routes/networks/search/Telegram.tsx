@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from 'components/page/Page.module.css'
-import img1 from 'images/telegram/part.png'
-import img2 from 'images/telegram/window.png'
-import img3 from 'images/telegram/full.png'
-import img4 from 'images/telegram/tgstat.png'
-import img5 from 'images/telegram/telegros.png'
-import img6 from 'images/telegram/popsters.png'
-import img7 from 'images/telegram/search_messages.png'
 import Image from 'components/Image'
+import styles from 'components/page/Page.module.css'
+import part from 'images/telegram/part.png'
+import popsters from 'images/telegram/popsters.png'
+import search_messages from 'images/telegram/search_messages.png'
+import site from 'images/telegram/site.png'
+import telegros from 'images/telegram/telegros.png'
+import tgstat from 'images/telegram/tgstat.png'
+import window from 'images/telegram/window.png'
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-const TelegramSearch: React.FC = () => {
+const TelegramSearch: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Инструкция по поиску - Telegram:</h2>
@@ -60,13 +60,13 @@ const TelegramSearch: React.FC = () => {
         эффективным.
       </p>
       <div>
-        <Image width="453" height="494" src={img1} alt="" />
+        <Image width="453" height="494" src={part} alt="" />
       </div>
       <div>
-        <Image width="750" height="104" src={img2} alt="" />
+        <Image width="750" height="104" src={window} alt="" />
       </div>
       <div>
-        <Image width="451" height="637" src={img3} alt="" />
+        <Image width="451" height="637" src={site} alt="" />
       </div>
       <h4>Второй способ</h4>
       <p>
@@ -91,13 +91,13 @@ const TelegramSearch: React.FC = () => {
         необходимые параметры, благодаря чему поиск станет более продуктивным.
       </p>
       <div>
-        <Image width="753" height="377" src={img4} alt="" />
+        <Image width="753" height="377" src={tgstat} alt="" />
       </div>
       <div>
-        <Image width="755" height="242" src={img5} alt="" />
+        <Image width="755" height="242" src={telegros} alt="" />
       </div>
       <div>
-        <Image width="758" height="361" src={img6} alt="" />
+        <Image width="758" height="361" src={popsters} alt="" />
       </div>
       <h3>Поиск сообщений</h3>
       <p>
@@ -112,7 +112,7 @@ const TelegramSearch: React.FC = () => {
         дополнительных нарушений.
       </p>
       <div>
-        <Image width="756" height="640" src={img7} alt="" />
+        <Image width="756" height="640" src={search_messages} alt="" />
       </div>
       <p>
         Надеюсь, данная инструкция окажется крайне полезной для тех, кому

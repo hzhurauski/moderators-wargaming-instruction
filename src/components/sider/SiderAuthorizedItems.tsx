@@ -1,14 +1,14 @@
 import { Menu } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
-import { authorizedMenuItems, authorizedSubMenuItems } from 'helpers/helper'
-import { useCallback } from 'react'
+import { authorizedMenuItems, authorizedSubMenuItems } from 'data/data'
+import { FC, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { DispatchType } from 'store'
 import { actions } from 'store/authReducer'
 import { LocationType } from 'types/Types'
 
-const SiderAuthorizedItems = () => {
+const SiderAuthorizedItems: FC = () => {
   const { pathname } = useLocation<LocationType>()
   const dispatch = useDispatch<DispatchType>()
 
