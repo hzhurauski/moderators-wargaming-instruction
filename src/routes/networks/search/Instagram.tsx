@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styles from 'components/page/Page.module.css'
-import img1 from 'images/instagram/1.png'
-import img2 from 'images/instagram/2.png'
-import img3 from 'images/instagram/3.png'
-import img4 from 'images/instagram/4.png'
+import site from 'images/instagram/site.png'
+import inurl from 'images/instagram/inurl.png'
+import search from 'images/instagram/search.png'
+import shops from 'images/instagram/shops.png'
 import Image from 'components/Image'
 
-const InstagramSearch: React.FC = () => {
+const InstagramSearch: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Инструкция по поиску - Instagram:</h2>
@@ -28,10 +28,10 @@ const InstagramSearch: React.FC = () => {
         <li>наш запрос</li>
       </ul>
       <div>
-        <Image width="650" height="650" src={img1} alt="" />
+        <Image width="650" height="650" src={site} alt="" />
       </div>
       <div>
-        <Image width="650" height="250" src={img2} alt="" />
+        <Image width="650" height="250" src={inurl} alt="" />
       </div>
       <p>
         Таким образом, гугл дает нам право на очень объемный поиск. Меняя наш
@@ -50,10 +50,10 @@ const InstagramSearch: React.FC = () => {
         использованием 2 (товар) группы может не дать желанных результатов.
       </p>
       <div>
-        <Image width="750" height="55" src={img3} alt="" />
+        <Image width="750" height="55" src={search} alt="" />
       </div>
       <div>
-        <Image width="540" height="380" src={img4} alt="" />
+        <Image width="540" height="380" src={shops} alt="" />
       </div>
       <h4> FAQ </h4>
       <p>

@@ -1,5 +1,5 @@
 import { Content } from 'antd/lib/layout/layout'
-import { FC, useMemo } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
 import { isAuthSelector } from 'selectors/authSelectors'
@@ -8,13 +8,14 @@ import PageBreadcrumb from 'components/page/PageBreadcrumb'
 
 const PageContent: FC = () => {
   const isAuth = useSelector(isAuthSelector)
+  const [lastPathname, setLastPathname] = useState<string>('')
 
-  const lastPathname = useMemo(() => {
+  useEffect(() => {
     if (isAuth) {
       const pathname = localStorage.getItem('pathname')
-      return pathname || 'home'
+      setLastPathname(pathname || 'home')
     } else {
-      return 'login'
+      setLastPathname('login')
     }
   }, [isAuth])
 

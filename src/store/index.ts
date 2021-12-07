@@ -7,7 +7,7 @@ import appReducer from 'store/appReducer'
 export type AppStateType = ReturnType<typeof store.getState>
 export type DispatchType = typeof store.dispatch
 export type InferActionsType<T> = T extends {
-  [key: string]: (...args: any[]) => infer U
+  [key: string]: (...args: never[]) => infer U
 }
   ? U
   : never

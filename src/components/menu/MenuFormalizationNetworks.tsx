@@ -1,4 +1,4 @@
-import { formalizationNetworks } from 'helpers/helper'
+import { formalizationNetworks } from 'data/data'
 import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { useMemo } from 'react'

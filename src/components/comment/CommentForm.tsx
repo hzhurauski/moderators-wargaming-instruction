@@ -20,9 +20,9 @@ const CommentForm: FC = () => {
   const comments = useSelector(commentsSelector)
   const isSubmitting = useSelector(isSubmittingSelector)
 
-  const date = moment().format('L')
-
   const handleSubmit = useCallback(() => {
+    const date = moment().format('L')
+
     if (!message) {
       return
     }

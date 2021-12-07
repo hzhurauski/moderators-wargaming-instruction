@@ -1,7 +1,7 @@
-import React from 'react'
 import styles from 'components/page/Page.module.css'
+import React, { FC } from 'react'
 
-const VkFormalization: React.FC = () => {
+const VkFormalization: FC = () => {
   return (
     <div className={styles.main}>
       <h2>Инструкция по оформлению - VK:</h2>

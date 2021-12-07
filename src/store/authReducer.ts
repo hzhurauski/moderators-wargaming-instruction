@@ -5,7 +5,6 @@ type ActionsType = InferActionsType<typeof actions>
 
 const initialState = {
   isAuth: false,
-  password: '',
   payload: {
     name: '',
     rememberMe: false,
@@ -26,7 +25,6 @@ const authReducer = (
       return {
         ...state,
         payload: action.payload,
-        password: '',
       }
     default:
       return state
