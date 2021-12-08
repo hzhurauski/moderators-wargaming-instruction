@@ -5,34 +5,22 @@ let state: InitialStateType
 beforeEach(() => {
   state = {
     isAuth: true,
-    password: '',
     payload: {
       name: '',
-      password: '',
-      rememberMe: false,
+      isRememberMe: false,
     },
   }
 })
 
-test('is auth', () => {
+test('IS_ACCESS', () => {
   const NewState = authReducer(state, actions.setIsAuth(true))
 
   expect(NewState.isAuth).toBeTruthy()
 })
 
-test('current password', () => {
-  const NewState = authReducer(state, actions.setPassword('some password'))
-
-  expect(NewState.password).toBe('some password')
-})
-
-test('get user data', () => {
-  const NewState = authReducer(
-    state,
-    actions.setUserData('name', 'password', true)
-  )
+test('USER_DATA', () => {
+  const NewState = authReducer(state, actions.setUserData('name', true))
 
   expect(NewState.payload.name).toBe('name')
-  expect(NewState.payload.password).toBe('password')
-  expect(NewState.payload.rememberMe).toBeTruthy()
+  expect(NewState.payload.isRememberMe).toBeTruthy()
 })

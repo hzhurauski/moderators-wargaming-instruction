@@ -1,46 +1,5 @@
-import commentReducer, {
-  actions,
-  InitialStateType,
-  getCommentsThunk,
-} from 'store/commentReducer'
-import { commentAPI } from 'service'
-import { ResultCodesEnum } from 'service'
+import commentReducer, { actions, InitialStateType } from 'store/commentReducer'
 import { CommentType } from 'types/comment/CommentType'
-import { ResponseType } from 'types/service/ServiceType'
-
-jest.mock('DAL/API')
-const commentAPIMock = commentAPI as jest.Mocked<typeof commentAPI>
-
-const response: ResponseType<CommentType[]> = {
-  comments: [
-    {
-      name: 'Пользователь',
-      message: 'Когда будут добавлены новые сети?',
-      isAdmin: false,
-      id: 1,
-      date: '18.07.2021',
-    },
-    {
-      name: 'Ответ администратора сайта:',
-      message: 'Совсем скоро, работаем над этим!',
-      isAdmin: true,
-      id: 2,
-      date: '18.07.2021',
-    },
-  ],
-  resultCode: ResultCodesEnum.Success,
-}
-
-const dispatchMock = jest.fn()
-const getStateMock = jest.fn()
-
-beforeEach(() => {
-  dispatchMock.mockClear()
-  getStateMock.mockClear()
-  commentAPIMock.getCommentsThunk.mockClear()
-})
-
-commentAPIMock.getCommentsThunk.mockReturnValue(Promise.resolve(response))
 
 let state: InitialStateType
 
@@ -52,22 +11,45 @@ beforeEach(() => {
   }
 })
 
-test('get comments', async () => {
-  const thunk = getCommentsThunk()
+test('COMMENTS', async () => {
+  const response = [
+    {
+      name: 'Пользователь',
+      message: 'Когда будут добавлены новые сети?',
+      isAdmin: false,
+      id: 0,
+      date: '12.08.2021',
+    },
+    {
+      name: 'Ответ администратора сайта:',
+      message: 'Совсем скоро, работаем над этим!',
+      isAdmin: true,
+      id: 1,
+      date: '12.08.2021',
+    },
+  ] as CommentType[]
 
-  await thunk(dispatchMock, getStateMock, {})
+  const newState = commentReducer(state, actions.setComments(response))
 
-  expect(state.comments.length).toBe(2)
+  expect(newState.comments.length).toBe(2)
 })
 
-test('change message', () => {
-  const NewState = commentReducer(state, actions.changeMessage('Success'))
+test('COMMENT', () => {
+  const instance = {
+    name: 'name',
+    message: 'message',
+    isAdmin: true,
+    id: 0,
+    date: '12.08.2021',
+  }
 
-  expect(NewState.message).toBe('Success')
+  const newState = commentReducer(state, actions.setComment(instance))
+
+  expect(newState.comments[0]).toStrictEqual(instance)
 })
 
-test('is submitting', () => {
-  const NewState = commentReducer(state, actions.setIsSubmitting(true))
+test('IS_SUBMITTING', () => {
+  const newState = commentReducer(state, actions.setIsSubmitting(true))
 
-  expect(NewState.isSubmitting).toBeTruthy()
+  expect(newState.isSubmitting).toBeTruthy()
 })

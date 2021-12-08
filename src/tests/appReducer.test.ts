@@ -8,8 +8,8 @@ beforeEach(() => {
   }
 })
 
-test('change title', () => {
-  const NewState = appReducer(state, actions.changeTitle('Title'))
+test('TITLE', () => {
+  const NewState = appReducer(state, actions.setTitle('title'))
 
-  expect(NewState.title).toBe('Title')
+  expect(NewState.title).toBe('title')
 })
