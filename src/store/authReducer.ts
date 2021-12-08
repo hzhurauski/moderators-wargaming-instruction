@@ -7,7 +7,7 @@ const initialState = {
   isAuth: false,
   payload: {
     name: '',
-    rememberMe: false,
+    isRememberMe: false,
   },
 }
 
@@ -33,10 +33,10 @@ const authReducer = (
 
 export const actions = {
   setIsAuth: (isAuth: boolean) => ({ type: 'IS_ACCESS', isAuth } as const),
-  setUserData: (name: string, rememberMe: boolean) =>
+  setUserData: (name: string, isRememberMe: boolean) =>
     ({
       type: 'USER_DATA',
-      payload: { name, rememberMe },
+      payload: { name, isRememberMe },
     } as const),
 }
 

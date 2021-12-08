@@ -1,8 +1,8 @@
 import { Layout } from 'antd'
-import { UaType } from 'types/Types'
-import { FC, useCallback, useState } from 'react'
 import SiderMenu from 'components/sider/SiderMenu'
+import React, { FC, useCallback, useState } from 'react'
 import { withUserAgent } from 'react-useragent'
+import { UaType } from 'types/Types'
 
 const { Sider } = Layout
 

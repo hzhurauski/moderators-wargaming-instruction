@@ -1,9 +1,9 @@
-import { searchNetworks } from 'data/data'
 import { Menu } from 'antd'
+import { searchNetworks } from 'data'
+import React, { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { useMemo } from 'react'
 
-const MenuSearchNetworks = () => {
+const MenuSearchNetworks: FC = () => {
   return useMemo(() => {
     return (
       <>

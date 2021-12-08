@@ -1,9 +1,9 @@
-import { formalizationNetworks } from 'data/data'
 import { Menu } from 'antd'
+import { formalizationNetworks } from 'data'
+import React, { FC, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { useMemo } from 'react'
 
-const MenuFormalizationNetworks = () => {
+const MenuFormalizationNetworks: FC = () => {
   return useMemo(() => {
     return (
       <>

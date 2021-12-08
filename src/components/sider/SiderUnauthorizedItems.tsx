@@ -1,6 +1,6 @@
 import { LockOutlined } from '@ant-design/icons'
 import { Menu } from 'antd'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { LocationType } from 'types/Types'
 

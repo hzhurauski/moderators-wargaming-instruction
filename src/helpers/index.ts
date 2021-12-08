@@ -1,7 +1,7 @@
-import { appTitle } from 'data/data'
+import { appTitle } from 'data'
 import { AppTitleType } from 'types/app/AppType'
 
-export const setTitleHelper = (pathname: string) => {
+export const setTitleHelper = (pathname: string): string => {
   const defaultTitle = {
     title: 'Страница не найдена',
   }

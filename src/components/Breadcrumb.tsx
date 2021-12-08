@@ -1,3 +1,4 @@
+import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import { RoutesType } from 'types/routes/RoutesType'
 
@@ -6,7 +7,7 @@ export const itemRender = (
   params: unknown,
   routes: Array<RoutesType>,
   paths: string[]
-) => {
+): ReactElement => {
   const last = routes.indexOf(route) === routes.length - 1
   return last ? (
     <span>{route.breadcrumbName}</span>

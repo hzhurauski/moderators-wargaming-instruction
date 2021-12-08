@@ -1,5 +1,5 @@
 import { Checkbox, Form } from 'antd'
-import { FC, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 
 const LoginIsRemeberMe: FC = () => {
   return useMemo(() => {

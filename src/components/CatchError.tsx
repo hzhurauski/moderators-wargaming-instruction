@@ -1,13 +1,21 @@
-import { PureComponent, ErrorInfo } from 'react'
 import styles from 'components/page/Page.module.css'
+import React, { ErrorInfo, PureComponent, ReactNode } from 'react'
 
-class CatchError extends PureComponent<{}, { hasError: boolean }> {
-  constructor(props: Readonly<{}> | {}) {
+type PropsType = {
+  children: ReactNode
+}
+
+type StateType = {
+  hasError: boolean
+}
+
+class CatchError extends PureComponent<PropsType, StateType> {
+  constructor(props: Readonly<Element>) {
     super(props)
     this.state = { hasError: false }
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     this.setState({ hasError: true })
     console.log(error, errorInfo)
   }

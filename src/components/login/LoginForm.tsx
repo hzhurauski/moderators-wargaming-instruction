@@ -1,12 +1,12 @@
 import { Form } from 'antd'
-import { useDispatch } from 'react-redux'
-import { actions } from 'store/authReducer'
-import { FC, useCallback, useState } from 'react'
-import { DispatchType } from 'store'
-import LoginPassword from 'components/login/LoginPassword'
-import LoginIsRemeberMe from 'components/login/LoginIsRememberMe'
 import LoginButton from 'components/login/LoginButton'
+import LoginIsRemeberMe from 'components/login/LoginIsRememberMe'
 import LoginName from 'components/login/LoginName'
+import LoginPassword from 'components/login/LoginPassword'
+import React, { FC, useCallback, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { DispatchType } from 'store'
+import { actions } from 'store/authReducer'
 
 type FormType = {
   name: string

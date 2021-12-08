@@ -9,7 +9,7 @@ type ThunkType = BaseThunkType<ActionsType>
 const initialState = {
   isSubmitting: false,
   message: '',
-  comments: [] as Array<CommentType>,
+  comments: [] as CommentType[],
 }
 
 const commentReducer = (
@@ -39,7 +39,7 @@ const commentReducer = (
 }
 
 export const actions = {
-  setComments: (comments: Array<CommentType>) =>
+  setComments: (comments: CommentType[]) =>
     ({ type: 'COMMENTS', comments } as const),
   setComment: (comment: CommentType) => ({ type: 'COMMENT', comment } as const),
   setIsSubmitting: (isSubmitting: boolean) =>

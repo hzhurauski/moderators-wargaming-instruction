@@ -1,11 +1,11 @@
-import { LocationType } from 'types/Types'
 import {
-  SendOutlined,
-  InstagramOutlined,
   FacebookOutlined,
+  InstagramOutlined,
+  SendOutlined,
 } from '@ant-design/icons'
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { useLocation } from 'react-router'
+import { LocationType } from 'types/Types'
 
 const NetworkIcon: FC = () => {
   const { pathname } = useLocation<LocationType>()

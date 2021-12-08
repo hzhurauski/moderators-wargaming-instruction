@@ -1,6 +1,6 @@
-import { wargamingProjects } from 'data/data'
 import { Menu } from 'antd'
-import { FC, useMemo } from 'react'
+import { wargamingProjects } from 'data'
+import React, { FC, useMemo } from 'react'
 
 const MenuWargamingProjects: FC = () => {
   return useMemo(() => {

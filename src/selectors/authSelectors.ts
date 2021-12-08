@@ -1,9 +1,14 @@
 import { AppStateType } from 'store'
 
-export const isAuthSelector = (state: AppStateType) => {
+type PayloadType = {
+  name: string
+  isRememberMe: boolean
+}
+
+export const isAuthSelector = (state: AppStateType): boolean => {
   return state.authPage.isAuth
 }
 
-export const userDataSelector = (state: AppStateType) => {
+export const userDataSelector = (state: AppStateType): PayloadType => {
   return state.authPage.payload
 }

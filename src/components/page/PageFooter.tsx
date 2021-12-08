@@ -1,8 +1,8 @@
 import { Footer } from 'antd/lib/layout/layout'
-import { FC, useMemo } from 'react'
+import Comments from 'components/comment/Comments'
+import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { isAuthSelector } from 'selectors/authSelectors'
-import Comments from 'components/comment/Comments'
 
 const PageFooter: FC = () => {
   const isAuth = useSelector(isAuthSelector)
