@@ -1,10 +1,10 @@
 import { Content } from 'antd/lib/layout/layout'
-import { FC, useEffect, useState } from 'react'
+import PageBreadcrumb from 'components/page/PageBreadcrumb'
+import PageRoutes from 'components/page/PageRoutes'
+import React, { FC, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
 import { isAuthSelector } from 'selectors/authSelectors'
-import PageRoutes from 'components/page/PageRoutes'
-import PageBreadcrumb from 'components/page/PageBreadcrumb'
 
 const PageContent: FC = () => {
   const isAuth = useSelector(isAuthSelector)

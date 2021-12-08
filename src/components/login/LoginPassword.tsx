@@ -1,6 +1,6 @@
 import { LockOutlined } from '@ant-design/icons'
 import { Form, Input } from 'antd'
-import { FC, useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 
 const LoginPassword: FC = () => {
   return useMemo(() => {

@@ -1,6 +1,6 @@
-import { myContacts } from 'data/data'
-import { FC, useMemo } from 'react'
 import { Menu } from 'antd'
+import { myContacts } from 'data'
+import React, { FC, useMemo } from 'react'
 
 const MenuMyContacts: FC = () => {
   return useMemo(() => {
