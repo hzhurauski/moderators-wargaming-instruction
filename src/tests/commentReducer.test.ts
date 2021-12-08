@@ -11,7 +11,7 @@ import { ResponseType } from 'types/service/ServiceType'
 jest.mock('DAL/API')
 const commentAPIMock = commentAPI as jest.Mocked<typeof commentAPI>
 
-const response: ResponseType<Array<CommentType>> = {
+const response: ResponseType<CommentType[]> = {
   comments: [
     {
       name: 'Пользователь',
@@ -48,7 +48,7 @@ beforeEach(() => {
   state = {
     isSubmitting: false,
     message: '',
-    comments: [] as Array<CommentType>,
+    comments: [] as CommentType[],
   }
 })
 

@@ -15,7 +15,7 @@ export const instance = axios.create({
 export const commentAPI = {
   getComments() {
     return instance
-      .get<ResponseType<Array<CommentType>>>('comments')
+      .get<ResponseType<CommentType[]>>('comments')
       .then((res) => res.data)
   },
 }

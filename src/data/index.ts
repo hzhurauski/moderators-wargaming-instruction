@@ -8,7 +8,16 @@ import MenuMyContacts from 'components/menu/MenuMyContacts'
 import MenuNetworks from 'components/menu/MenuNetworks'
 import MenuWargamingProjects from 'components/menu/MenuWargamingProject'
 import NetworkIcon from 'components/network/NetworkIcon'
-import { AppTitleType } from 'types/app/AppType'
+import {
+  AppTitleType,
+  AuthorizedMenuItemsType,
+  AuthorizedSubMenuItemsType,
+  FormalizationNetworksType,
+  MyContactsType,
+  SearchNetworksType,
+  TableDataType,
+  WargamingProjectsType,
+} from 'types/data/DataTypes'
 
 export const appTitle = [
   { pathname: '/home', title: 'Введение' },
@@ -37,14 +46,14 @@ export const searchNetworks = [
     link: '/network/search/instagram',
     socialNetwork: 'Instagram',
   },
-]
+] as SearchNetworksType[]
 
 export const formalizationNetworks = [
   {
     link: '/network/formalization/vk',
     socialNetwork: 'Vk',
   },
-]
+] as FormalizationNetworksType[]
 
 export const wargamingProjects = [
   {
@@ -75,7 +84,7 @@ export const wargamingProjects = [
     href: 'https://wargaming.com/ru/games/master-of-orion',
     projectName: 'Master of Orion',
   },
-]
+] as WargamingProjectsType[]
 
 export const myContacts = [
   {
@@ -90,7 +99,7 @@ export const myContacts = [
     href: 'http://www.facebook.com/profile.php?id=100014898465280',
     socialNetwork: 'Facebook',
   },
-]
+] as MyContactsType[]
 
 export const authorizedMenuItems = [
   {
@@ -103,7 +112,7 @@ export const authorizedMenuItems = [
     Icon: HomeOutlined,
     title: 'Введение',
   },
-]
+] as AuthorizedMenuItemsType[]
 
 export const authorizedSubMenuItems = [
   {
@@ -121,13 +130,14 @@ export const authorizedSubMenuItems = [
     title: 'Мои контакты',
     Children: MenuMyContacts,
   },
-]
+] as AuthorizedSubMenuItemsType[]
 
 export const tableData = [
   {
-    0: 'продаю, куплю, обмен, обменяю, раздача, прокачка, буст, магазин(премиум), shop',
-    1: 'продам, продажа, продается | покупаю, скупаю, купля, закупка | отдам, дам, отдача, раздам, раздаю, розыгрыш | поднятие статистики | маркет, рынок, аукцион',
-    2: 'ак, акк, акаунт, аккаунт | код, премиум/бонус-коды | читы | золото, голда',
-    3: 'wot, world of tanks, ворлд оф танкс',
+    main: 'продаю, куплю, обмен, обменяю, раздача, прокачка, буст, магазин(премиум), shop',
+    rare: 'продам, продажа, продается | покупаю, скупаю, купля, закупка | отдам, дам, отдача, раздам, раздаю, розыгрыш | поднятие статистики | маркет, рынок, аукцион',
+    product:
+      'ак, акк, акаунт, аккаунт | код, премиум/бонус-коды | читы | золото, голда',
+    project: 'wot, world of tanks, ворлд оф танкс',
   },
-]
+] as TableDataType[]
