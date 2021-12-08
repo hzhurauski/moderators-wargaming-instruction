@@ -5,7 +5,7 @@ import { RoutesType } from 'types/routes/RoutesType'
 export const itemRender = (
   route: RoutesType,
   params: unknown,
-  routes: Array<RoutesType>,
+  routes: RoutesType[],
   paths: string[]
 ): ReactElement => {
   const last = routes.indexOf(route) === routes.length - 1

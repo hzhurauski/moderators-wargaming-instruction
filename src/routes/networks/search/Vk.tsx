@@ -32,11 +32,11 @@ const VkSearch: FC = () => {
       <h4 id="table"> Таблица </h4>
       <Table dataSource={tableData} pagination={false}>
         <ColumnGroup title="1 группа (действие)">
-          <Column title="Основные" dataIndex="0" />
-          <Column title="Более редкие" dataIndex="1" />
+          <Column title="Основные" dataIndex="main" />
+          <Column title="Более редкие" dataIndex="rare" />
         </ColumnGroup>
-        <Column title="2 группа (товар)" dataIndex="2" />
-        <Column title="3 группа (проект)" dataIndex="3" />
+        <Column title="2 группа (товар)" dataIndex="product" />
+        <Column title="3 группа (проект)" dataIndex="project" />
       </Table>
       <p>
         Я разделил запрос на 3 основные части: чтобы поиск оказался

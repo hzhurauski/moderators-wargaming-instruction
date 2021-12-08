@@ -1,5 +1,5 @@
 import { appTitle } from 'data'
-import { AppTitleType } from 'types/app/AppType'
+import { AppTitleType } from 'types/data/DataTypes'
 
 export const setTitleHelper = (pathname: string): string => {
   const defaultTitle = {
