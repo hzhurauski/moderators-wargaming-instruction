@@ -40,7 +40,7 @@ export type AuthorizedMenuItemsType = {
 
 export type AuthorizedSubMenuItemsType = {
   Icon: FC
-  title: 'Социальные сети' | 'Наши проекты' | 'Мои контакты'
+  title: 'Social networks' | 'We project' | 'My contacts'
   Children: FC
 }
 
