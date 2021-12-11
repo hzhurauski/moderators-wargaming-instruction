@@ -7,13 +7,13 @@ import React, { FC } from 'react'
 const MenuNetworks: FC = () => {
   return (
     <>
-      <SubMenu key="Поиск" icon={<SearchOutlined />} title="Поиск">
+      <SubMenu key="Search" icon={<SearchOutlined />} title="Search">
         <MenuSearchNetworks />
       </SubMenu>
       <SubMenu
-        key="Оформление"
+        key="Formalization"
         icon={<FileProtectOutlined />}
-        title="Оформление"
+        title="Formalization"
       >
         <MenuFormalizationNetworks />
       </SubMenu>

@@ -15,7 +15,7 @@ const SiderUnauthorizedItems: FC = () => {
       mode="inline"
     >
       <Menu.Item key="/login" icon={<LockOutlined />}>
-        <Link to="/login">Аутентификация</Link>
+        <Link to="/login">Login</Link>
       </Menu.Item>
     </Menu>
   )

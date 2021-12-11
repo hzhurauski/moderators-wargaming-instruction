@@ -13,9 +13,9 @@ const PageContent: FC = () => {
   useEffect(() => {
     if (isAuth) {
       const pathname = localStorage.getItem('pathname')
-      setLastPathname(pathname || 'home')
+      setLastPathname(pathname || '/home')
     } else {
-      setLastPathname('login')
+      setLastPathname('/login')
     }
   }, [isAuth])
 

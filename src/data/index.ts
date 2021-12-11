@@ -20,13 +20,13 @@ import {
 } from 'types/data/DataTypes'
 
 export const appTitle = [
-  { pathname: '/home', title: 'Введение' },
-  { pathname: '/login', title: 'Aутентификация' },
-  { pathname: '/network/search/vk', title: 'Поиск - Vk' },
-  { pathname: '/network/search/telegram', title: 'Поиск - Telegram' },
-  { pathname: '/network/search/discord', title: 'Поиск - Discord' },
-  { pathname: '/network/search/instagram', title: 'Поиск - Instagram' },
-  { pathname: '/network/formalization/vk', title: 'Оформление - Vk' },
+  { pathname: '/home', title: 'Home' },
+  { pathname: '/login', title: 'Authentication' },
+  { pathname: '/network/search/vk', title: 'Search - Vk' },
+  { pathname: '/network/search/telegram', title: 'Search - Telegram' },
+  { pathname: '/network/search/discord', title: 'Search - Discord' },
+  { pathname: '/network/search/instagram', title: 'Search - Instagram' },
+  { pathname: '/network/formalization/vk', title: 'Formalization - Vk' },
 ] as AppTitleType[]
 
 export const searchNetworks = [
@@ -105,29 +105,29 @@ export const authorizedMenuItems = [
   {
     link: '/login',
     Icon: CloseOutlined,
-    title: 'Выйти',
+    title: 'Logout',
   },
   {
     link: '/home',
     Icon: HomeOutlined,
-    title: 'Введение',
+    title: 'Home',
   },
 ] as AuthorizedMenuItemsType[]
 
 export const authorizedSubMenuItems = [
   {
     Icon: NetworkIcon,
-    title: 'Социальные сети',
+    title: 'Social networks',
     Children: MenuNetworks,
   },
   {
     Icon: MenuOutlined,
-    title: 'Наши проекты',
+    title: 'We project',
     Children: MenuWargamingProjects,
   },
   {
     Icon: GithubOutlined,
-    title: 'Мои контакты',
+    title: 'My contacts',
     Children: MenuMyContacts,
   },
 ] as AuthorizedSubMenuItemsType[]
