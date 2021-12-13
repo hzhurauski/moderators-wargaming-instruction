@@ -1,4 +1,4 @@
-import thunkMiddleware, { ThunkAction } from 'redux-thunk'
+import thunkMiddleware, { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { createStore, applyMiddleware, combineReducers, AnyAction } from 'redux'
 import authReducer from 'store/authReducer'
 import commentReducer from 'store/commentReducer'
@@ -6,6 +6,7 @@ import appReducer from 'store/appReducer'
 
 export type AppStateType = ReturnType<typeof store.getState>
 export type DispatchType = typeof store.dispatch
+export type AppDispatch = ThunkDispatch<never, unknown, AnyAction>
 export type InferActionsType<T> = T extends {
   [key: string]: (...args: never[]) => infer U
 }
