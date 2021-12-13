@@ -11,14 +11,14 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, useLocation } from 'react-router-dom'
 import { titleSelector } from 'selectors/appSelectors'
 import { isAuthSelector } from 'selectors/authSelectors'
-import store, { DispatchType } from 'store'
+import store, { AppDispatch } from 'store'
 import { actions as appActions } from 'store/appReducer'
 import { actions as authActions } from 'store/authReducer'
 import { getCommentsThunk } from 'store/commentReducer'
 import { LocationType, UserData } from 'types/Types'
 
 const App: FC = () => {
-  const dispatch = useDispatch<DispatchType>()
+  const dispatch = useDispatch<AppDispatch>()
   const { pathname } = useLocation<LocationType>()
   const isAuth = useSelector(isAuthSelector)
   const title = useSelector(titleSelector)
@@ -35,7 +35,7 @@ const App: FC = () => {
       }
     }
 
-    getCommentsThunk()
+    dispatch(getCommentsThunk())
   }, [dispatch])
 
   useEffect(() => {
