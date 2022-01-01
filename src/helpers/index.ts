@@ -1,6 +1,6 @@
 import { appTitle } from 'data'
 import { AppTitleType } from 'types/data/DataTypes'
-import { RoutesType } from 'types/routes/RoutesType'
+import { RoutesType } from 'types/route/RouteTypes'
 
 export const setTitleHelper = (pathname: string): string => {
   const defaultTitle = {

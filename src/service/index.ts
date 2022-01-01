@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { REACT_APP_API } from 'config'
-import { CommentType } from 'types/comment/CommentType'
-import { ResponseType } from 'types/service/ServiceType'
+import { CommentType } from 'types/comment/CommentTypes'
+import { ResponseType } from 'types/service/ServiceTypes'
 
 export enum ResultCodesEnum {
   Success = 0,

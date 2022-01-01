@@ -1,5 +1,5 @@
 import { commentAPI, ResultCodesEnum } from 'service'
-import { CommentType } from 'types/comment/CommentType'
+import { CommentType } from 'types/comment/CommentTypes'
 import { BaseThunkType, InferActionsType } from 'store'
 
 export type InitialStateType = typeof initialState

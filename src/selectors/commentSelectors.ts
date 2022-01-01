@@ -1,5 +1,5 @@
 import { AppStateType } from 'store'
-import { CommentType } from 'types/comment/CommentType'
+import { CommentType } from 'types/comment/CommentTypes'
 
 export const commentsSelector = (state: AppStateType): CommentType[] => {
   return state.comment.comments

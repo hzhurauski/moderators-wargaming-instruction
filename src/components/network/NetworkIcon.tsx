@@ -5,7 +5,7 @@ import {
 } from '@ant-design/icons'
 import React, { FC } from 'react'
 import { useLocation } from 'react-router'
-import { LocationType } from 'types/Types'
+import { LocationType } from 'types/app/AppTypes'
 
 const NetworkIcon: FC = () => {
   const { pathname } = useLocation<LocationType>()

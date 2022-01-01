@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
-import { RoutesType } from 'types/routes/RoutesType'
+import { RoutesType } from 'types/route/RouteTypes'
 
 export const itemRender = (
   route: RoutesType,

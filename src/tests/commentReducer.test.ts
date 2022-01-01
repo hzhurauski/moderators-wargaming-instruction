@@ -1,5 +1,5 @@
 import commentReducer, { actions, InitialStateType } from 'store/commentReducer'
-import { CommentType } from 'types/comment/CommentType'
+import { CommentType } from 'types/comment/CommentTypes'
 
 let state: InitialStateType
 
