@@ -1,18 +1,5 @@
 import { AppStateType } from 'store'
 
-export type MdType = {
-  maxPhoneWidth: number
-  ua: string
-}
-
-export type UaType = {
-  md: MdType
-  mobile: null | string
-  os: null | string
-  phone: null | string
-  tablet: null | string
-}
-
 export type LocationType = {
   pathname: string
   search: string
@@ -24,4 +11,17 @@ export type LocationType = {
 export type UserData = {
   isRememberMe: boolean
   name: string
+}
+
+export type MdType = {
+  maxPhoneWidth: number
+  ua: string
+}
+
+export type UaType = {
+  md: MdType
+  mobile: null | string
+  os: null | string
+  phone: null | string
+  tablet: null | string
 }

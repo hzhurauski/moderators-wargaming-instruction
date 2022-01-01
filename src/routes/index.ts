@@ -7,7 +7,7 @@ import NotFound from 'routes/NotFound'
 import {
   AuthorizedRoutesType,
   UnauthorizedRoutesType,
-} from 'types/routes/RoutesType'
+} from 'types/route/RouteTypes'
 
 const Suspense = (assignment: string, network: string) => {
   return withAuthRedirect(

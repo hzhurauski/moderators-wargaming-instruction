@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { withUserAgent } from 'react-useragent'
-import { UaType } from 'types/Types'
+import { UaType } from 'types/app/AppTypes'
 
 type PropsType = {
   width: string

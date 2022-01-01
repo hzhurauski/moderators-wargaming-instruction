@@ -4,8 +4,8 @@ import { itemRender } from 'components/Breadcrumb'
 import { setRoutes } from 'helpers'
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router'
-import { RoutesType } from 'types/routes/RoutesType'
-import { LocationType } from 'types/Types'
+import { RoutesType } from 'types/route/RouteTypes'
+import { LocationType } from 'types/app/AppTypes'
 
 const PageBreadcrumb: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<RoutesType[]>([])

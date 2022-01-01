@@ -15,7 +15,7 @@ import store, { AppDispatch } from 'store'
 import { actions as appActions } from 'store/appReducer'
 import { actions as authActions } from 'store/authReducer'
 import { getCommentsThunk } from 'store/commentReducer'
-import { LocationType, UserData } from 'types/Types'
+import { LocationType, UserData } from 'types/app/AppTypes'
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>()

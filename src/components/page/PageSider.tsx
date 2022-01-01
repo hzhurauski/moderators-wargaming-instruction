@@ -2,7 +2,7 @@ import { Layout } from 'antd'
 import SiderMenu from 'components/sider/SiderMenu'
 import React, { FC, useCallback, useMemo, useState } from 'react'
 import { withUserAgent } from 'react-useragent'
-import { UaType } from 'types/Types'
+import { UaType } from 'types/app/AppTypes'
 
 const { Sider } = Layout
 
