@@ -29,23 +29,28 @@ export const authorizedRoutes = [
     name: 'Home',
   },
   {
+    path: '/home',
+    Element: Home,
+    name: 'Home',
+  },
+  {
     path: '/network/search/vk',
-    element: VkSearchSuspense,
+    Element: VkSearchSuspense,
     name: 'Vk Search',
   },
   {
     path: '/network/search/telegram',
-    element: TelegramSearchSuspense,
+    Element: TelegramSearchSuspense,
     name: 'Telegram Search',
   },
   {
     path: '/network/search/discord',
-    element: DiscordSearchSuspense,
+    Element: DiscordSearchSuspense,
     name: 'Discord Search',
   },
   {
     path: '/network/search/instagram',
-    element: InstagramSearchSuspense,
+    Element: InstagramSearchSuspense,
     name: 'Instagram Search',
   },
   {

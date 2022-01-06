@@ -29,9 +29,9 @@ const SiderAuthorizedItems: FC = () => {
           </Menu.Item>
         )
       })}
-      {authorizedSubMenuItems.map(({ Icon, title, Children }) => {
+      {authorizedSubMenuItems.map(({ Icon, title, Children }, index) => {
         return (
-          <SubMenu icon={<Icon />} key={title} title={title}>
+          <SubMenu icon={<Icon />} key={index} title={title}>
             <Children />
           </SubMenu>
         )

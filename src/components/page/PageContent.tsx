@@ -3,11 +3,13 @@ import PageBreadcrumb from 'components/page/PageBreadcrumb'
 import PageRoutes from 'components/page/PageRoutes'
 import React, { FC, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { isAuthSelector } from 'selectors/authSelectors'
 
 const PageContent: FC = () => {
   const isAuth = useSelector(isAuthSelector)
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
   const [lastPathname, setLastPathname] = useState<string>('')
 
   useEffect(() => {
@@ -19,6 +21,12 @@ const PageContent: FC = () => {
     }
   }, [isAuth])
 
+  useEffect(() => {
+    if (pathname === '/home') {
+      navigate(lastPathname)
+    }
+  }, [navigate, lastPathname, pathname])
+
   return useMemo(() => {
     return (
       <Content style={{ margin: '0 16px' }}>
@@ -28,11 +36,10 @@ const PageContent: FC = () => {
           style={{ padding: 24, minHeight: 360 }}
         >
           <PageRoutes />
-          {lastPathname && <Navigate to={lastPathname} />}
         </div>
       </Content>
     )
-  }, [isAuth, lastPathname])
+  }, [isAuth])
 }
 
 export default PageContent
