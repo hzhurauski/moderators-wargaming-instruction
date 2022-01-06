@@ -5,11 +5,10 @@ import { setRoutes } from 'helpers'
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router'
 import { RoutesType } from 'types/route/RouteTypes'
-import { LocationType } from 'types/app/AppTypes'
 
 const PageBreadcrumb: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<RoutesType[]>([])
-  const { pathname } = useLocation<LocationType>()
+  const { pathname } = useLocation()
 
   const changeBreadCrumb = useCallback((): RoutesType[] => {
     const url = pathname.split('/')

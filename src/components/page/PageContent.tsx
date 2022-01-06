@@ -3,7 +3,7 @@ import PageBreadcrumb from 'components/page/PageBreadcrumb'
 import PageRoutes from 'components/page/PageRoutes'
 import React, { FC, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Redirect } from 'react-router'
+import { Navigate } from 'react-router'
 import { isAuthSelector } from 'selectors/authSelectors'
 
 const PageContent: FC = () => {
@@ -28,7 +28,7 @@ const PageContent: FC = () => {
           style={{ padding: 24, minHeight: 360 }}
         >
           <PageRoutes />
-          {lastPathname && <Redirect to={lastPathname} />}
+          {lastPathname && <Navigate to={lastPathname} />}
         </div>
       </Content>
     )

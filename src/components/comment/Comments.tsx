@@ -13,13 +13,13 @@ const Comments: FC = () => {
       <div className={styles.main}>
         <h5> Вы можете оставить свой комментарий на сайте: </h5>
         <CommentForm />
-        {comments.map((t) => (
+        {comments.map(({ isAdmin, userName, message, id, date }) => (
           <Comment
-            isAdmin={t.isAdmin}
-            name={t.name}
-            message={t.message}
-            key={t.id}
-            date={t.date}
+            isAdmin={isAdmin}
+            userName={userName}
+            message={message}
+            key={id}
+            date={date}
           />
         ))}
       </div>

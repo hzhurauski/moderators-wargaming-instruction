@@ -2,13 +2,13 @@ import { appTitle } from 'data'
 import { AppTitleType } from 'types/data/DataTypes'
 import { RoutesType } from 'types/route/RouteTypes'
 
-export const setTitleHelper = (pathname: string): string => {
+export const setTitleHelper = (location: string): string => {
   const defaultTitle = {
     title: 'Страница не найдена',
   }
 
   const { title } =
-    (appTitle.find((t) => t.pathname === pathname) as AppTitleType) ||
+    (appTitle.find(({ pathname }) => pathname === location) as AppTitleType) ||
     defaultTitle
 
   return title
