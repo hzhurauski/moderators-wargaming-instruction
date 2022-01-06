@@ -30,7 +30,7 @@ const CommentForm: FC = () => {
     dispatch(actions.setIsSubmitting(true))
     dispatch(
       actions.setComment({
-        name: name,
+        userName: name,
         message: message,
         isAdmin: false,
         id: comments.length + 1,

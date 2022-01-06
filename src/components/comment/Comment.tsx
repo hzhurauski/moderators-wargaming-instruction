@@ -3,11 +3,11 @@ import { Avatar, Comment as CommentComponent } from 'antd'
 import React, { FC, useMemo } from 'react'
 import { CommentType } from 'types/comment/CommentTypes'
 
-const Comment: FC<CommentType> = ({ name, message, isAdmin, date }) => {
+const Comment: FC<CommentType> = ({ userName, message, isAdmin, date }) => {
   return useMemo(() => {
     return (
       <CommentComponent
-        author={name}
+        author={userName}
         avatar={
           <Avatar
             size="large"
@@ -19,7 +19,7 @@ const Comment: FC<CommentType> = ({ name, message, isAdmin, date }) => {
         datetime={<h6>{date}</h6>}
       />
     )
-  }, [name, isAdmin, message, date])
+  }, [userName, isAdmin, message, date])
 }
 
 export default Comment

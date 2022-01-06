@@ -15,11 +15,11 @@ import store, { AppDispatch } from 'store'
 import { actions as appActions } from 'store/appReducer'
 import { actions as authActions } from 'store/authReducer'
 import { getCommentsThunk } from 'store/commentReducer'
-import { LocationType, UserData } from 'types/app/AppTypes'
+import { UserData } from 'types/app/AppTypes'
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>()
-  const { pathname } = useLocation<LocationType>()
+  const { pathname } = useLocation()
   const isAuth = useSelector(isAuthSelector)
   const title = useSelector(titleSelector)
 

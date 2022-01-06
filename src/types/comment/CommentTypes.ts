@@ -1,5 +1,5 @@
 export type CommentType = {
-  name: string
+  userName: string
   message: string
   isAdmin: boolean
   id?: number

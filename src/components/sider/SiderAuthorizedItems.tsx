@@ -6,10 +6,9 @@ import { useDispatch } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { DispatchType } from 'store'
 import { actions } from 'store/authReducer'
-import { LocationType } from 'types/app/AppTypes'
 
 const SiderAuthorizedItems: FC = () => {
-  const { pathname } = useLocation<LocationType>()
+  const { pathname } = useLocation()
   const dispatch = useDispatch<DispatchType>()
 
   const handleClick = useCallback(() => {

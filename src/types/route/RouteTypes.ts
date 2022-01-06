@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 export type RoutesType = {
   path: string
   breadcrumbName: string
@@ -6,7 +8,7 @@ export type RoutesType = {
 
 export type AuthorizedRoutesType = {
   path: string | string[]
-  component: () => React.ReactElement
+  Element: FC
   name:
     | 'Home'
     | 'Vk Search'
@@ -15,12 +17,10 @@ export type AuthorizedRoutesType = {
     | 'Instagram Search'
     | 'Vk Formalization'
     | 'Not Found'
-  exact: boolean
 }
 
 export type UnauthorizedRoutesType = {
   path: string
-  component: () => React.ReactElement
+  Element: FC
   name: 'Login'
-  exact: boolean
 }

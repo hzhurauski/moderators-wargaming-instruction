@@ -24,54 +24,46 @@ const VkFormalizationSuspense = Suspense('formalization', 'Vk')
 
 export const authorizedRoutes = [
   {
-    path: ['/', '/home'],
-    component: Home,
+    path: '/',
+    Element: Home,
     name: 'Home',
-    exact: true,
   },
   {
     path: '/network/search/vk',
-    component: VkSearchSuspense,
+    element: VkSearchSuspense,
     name: 'Vk Search',
-    exact: false,
   },
   {
     path: '/network/search/telegram',
-    component: TelegramSearchSuspense,
+    element: TelegramSearchSuspense,
     name: 'Telegram Search',
-    exact: false,
   },
   {
     path: '/network/search/discord',
-    component: DiscordSearchSuspense,
+    element: DiscordSearchSuspense,
     name: 'Discord Search',
-    exact: false,
   },
   {
     path: '/network/search/instagram',
-    component: InstagramSearchSuspense,
+    element: InstagramSearchSuspense,
     name: 'Instagram Search',
-    exact: false,
   },
   {
     path: '/network/formalization/vk',
-    component: VkFormalizationSuspense,
+    Element: VkFormalizationSuspense,
     name: 'Vk Formalization',
-    exact: false,
   },
   {
     path: '*',
-    component: NotFound,
+    Element: NotFound,
     name: 'Not Found',
-    exact: false,
   },
 ] as AuthorizedRoutesType[]
 
 export const unauthorizedRoutes = [
   {
     path: '/login',
-    component: Login,
+    Element: Login,
     name: 'Login',
-    exact: false,
   },
 ] as UnauthorizedRoutesType[]
