@@ -3,29 +3,27 @@ import PageBreadcrumb from 'components/page/PageBreadcrumb'
 import PageRoutes from 'components/page/PageRoutes'
 import React, { FC, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { isAuthSelector } from 'selectors/authSelectors'
 
 const PageContent: FC = () => {
+  const [lastPathname, setLastPathname] = useState<string>('')
   const isAuth = useSelector(isAuthSelector)
   const navigate = useNavigate()
-  const { pathname } = useLocation()
-  const [lastPathname, setLastPathname] = useState<string>('')
+
+  useEffect(() => {
+    navigate(lastPathname)
+  }, [lastPathname])
 
   useEffect(() => {
     if (isAuth) {
       const pathname = localStorage.getItem('pathname')
+
       setLastPathname(pathname || '/home')
     } else {
       setLastPathname('/login')
     }
   }, [isAuth])
-
-  useEffect(() => {
-    if (pathname === '/home') {
-      navigate(lastPathname)
-    }
-  }, [navigate, lastPathname, pathname])
 
   return useMemo(() => {
     return (
