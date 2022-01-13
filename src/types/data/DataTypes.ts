@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { RoutesType } from 'types/route/RouteTypes'
 
 export type AppTitleType = {
   pathname?: string
@@ -50,3 +51,7 @@ export type TableDataType = {
   product: string
   project: string
 }
+
+type BreadcrumbData = 'home' | 'network' | 'formalization' | 'search'
+
+export type BreadcrumbDataType = Record<BreadcrumbData, RoutesType>

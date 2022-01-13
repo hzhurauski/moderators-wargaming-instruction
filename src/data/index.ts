@@ -12,6 +12,7 @@ import {
   AppTitleType,
   AuthorizedMenuItemsType,
   AuthorizedSubMenuItemsType,
+  BreadcrumbDataType,
   FormalizationNetworksType,
   MyContactsType,
   SearchNetworksType,
@@ -141,3 +142,62 @@ export const tableData = [
     project: 'wot, world of tanks, ворлд оф танкс',
   },
 ] as TableDataType[]
+
+export const breadcrumbData = {
+  home: {
+    path: '/',
+    breadcrumbName: 'home',
+    children: [
+      {
+        path: '/network/search/vk',
+        breadcrumbName: 'Networks',
+      },
+    ],
+  },
+  network: {
+    path: '/',
+    breadcrumbName: 'network',
+    children: [
+      {
+        path: '/network/search/vk',
+        breadcrumbName: 'Search',
+      },
+      {
+        path: '/network/formalization/vk',
+        breadcrumbName: 'Formalization',
+      },
+    ],
+  },
+  formalization: {
+    path: '/',
+    breadcrumbName: 'formalization',
+    children: [
+      {
+        path: '/network/formalization/vk',
+        breadcrumbName: 'Vk',
+      },
+    ],
+  },
+  search: {
+    path: '/',
+    breadcrumbName: 'search',
+    children: [
+      {
+        path: '/network/search/vk',
+        breadcrumbName: 'Vk',
+      },
+      {
+        path: '/network/search/telegram',
+        breadcrumbName: 'Telegram',
+      },
+      {
+        path: '/network/search/discord',
+        breadcrumbName: 'Discord',
+      },
+      {
+        path: '/network/search/instagram',
+        breadcrumbName: 'Instagram',
+      },
+    ],
+  },
+} as BreadcrumbDataType
