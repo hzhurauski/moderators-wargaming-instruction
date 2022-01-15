@@ -1,3 +1,4 @@
+import { breadcrumbData } from './../data/index'
 import { appTitle } from 'data'
 import { AppTitleType } from 'types/data/DataTypes'
 import { RoutesType } from 'types/route/RouteTypes'
@@ -19,6 +20,8 @@ export const setRoutes = (
   routes: RoutesType[],
   index: number
 ): RoutesType[] => {
+  const { home, network, formalization, search } = breadcrumbData
+
   if (index === url.length) {
     return routes
   } else {
@@ -28,68 +31,16 @@ export const setRoutes = (
         if (index !== 0) {
           break
         }
-        routes.push({
-          path: '/',
-          breadcrumbName: 'home',
-          children: [
-            {
-              path: '/network/search/vk',
-              breadcrumbName: 'Networks',
-            },
-          ],
-        })
+        routes.push(home)
         break
       case 'network':
-        routes.push({
-          path: '/',
-          breadcrumbName: 'network',
-          children: [
-            {
-              path: '/network/search/vk',
-              breadcrumbName: 'Search',
-            },
-            {
-              path: '/network/formalization/vk',
-              breadcrumbName: 'Formalization',
-            },
-          ],
-        })
+        routes.push(network)
         break
       case 'formalization':
-        routes.push({
-          path: '/network/formalization/vk',
-          breadcrumbName: 'formalization',
-          children: [
-            {
-              path: '/network/formalization/vk',
-              breadcrumbName: 'Vk',
-            },
-          ],
-        })
+        routes.push(formalization)
         break
       case 'search':
-        routes.push({
-          path: '/network/search/vk',
-          breadcrumbName: 'search',
-          children: [
-            {
-              path: '/network/search/vk',
-              breadcrumbName: 'Vk',
-            },
-            {
-              path: '/network/search/telegram',
-              breadcrumbName: 'Telegram',
-            },
-            {
-              path: '/network/search/discord',
-              breadcrumbName: 'Discord',
-            },
-            {
-              path: '/network/search/instagram',
-              breadcrumbName: 'Instagram',
-            },
-          ],
-        })
+        routes.push(search)
         break
       case 'vk':
       case 'telegram':
