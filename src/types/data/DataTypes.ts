@@ -45,12 +45,9 @@ export type AuthorizedSubMenuItemsType = {
   Children: FC
 }
 
-export type TableDataType = {
-  main: string
-  rare: string
-  product: string
-  project: string
-}
+type TableData = 'main' | 'rare' | 'product' | 'project'
+
+export type TableDataType = Record<TableData, string>
 
 type BreadcrumbData = 'home' | 'network' | 'formalization' | 'search'
 

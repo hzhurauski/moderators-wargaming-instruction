@@ -27,7 +27,7 @@ export const setRoutes = (
   } else {
     switch (url[index]) {
       case '':
-      case '/home':
+      case 'home':
         if (index !== 0) {
           break
         }
