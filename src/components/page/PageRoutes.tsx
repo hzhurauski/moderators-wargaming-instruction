@@ -1,7 +1,7 @@
+import { authorizedRoutes, unauthorizedRoutes } from 'data'
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router'
-import { authorizedRoutes, unauthorizedRoutes } from 'routes'
 import { isAuthSelector } from 'selectors/authSelectors'
 
 const PageRoutes: FC = () => {

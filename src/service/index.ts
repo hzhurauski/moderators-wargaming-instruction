@@ -16,6 +16,6 @@ export const commentAPI = {
   getComments() {
     return instance
       .get<ResponseType<CommentType[]>>('comments')
-      .then((res) => res.data)
+      .then(({ data }) => data)
   },
 }
