@@ -10,6 +10,7 @@ import { Form, Input } from 'antd'
 import moment from 'moment'
 import { DispatchType } from 'store'
 import CommentButton from 'components/comment/CommentButton'
+import { setUserComment } from 'helpers'
 
 const { TextArea } = Input
 
@@ -29,13 +30,7 @@ const CommentForm: FC = () => {
 
     dispatch(actions.setIsSubmitting(true))
     dispatch(
-      actions.setComment({
-        userName: name,
-        message: message,
-        isAdmin: false,
-        id: comments.length + 1,
-        date: `${date}`,
-      })
+      actions.setComment(setUserComment(name, message, comments.length, date))
     )
     dispatch(actions.setIsSubmitting(false))
     setMessage('')
