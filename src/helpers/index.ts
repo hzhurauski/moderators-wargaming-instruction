@@ -57,3 +57,18 @@ export const setRoutes = (
   index += 1
   return setRoutes(url, routes, index)
 }
+
+export const setUserComment = (
+  name: string,
+  message: string,
+  commentsLength: number,
+  date: string
+) => {
+  return {
+    userName: name,
+    message: message,
+    isAdmin: false,
+    id: commentsLength + 1,
+    date: `${date}`,
+  }
+}
