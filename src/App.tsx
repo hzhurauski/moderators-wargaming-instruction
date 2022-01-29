@@ -6,9 +6,9 @@ import PageFooter from 'components/page/PageFooter'
 import PageHeader from 'components/page/PageHeader'
 import PageSider from 'components/page/PageSider'
 import { setTitleHelper } from 'helpers'
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Provider, useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter, useLocation } from 'react-router-dom'
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom'
 import { titleSelector } from 'selectors/appSelectors'
 import { isAuthSelector } from 'selectors/authSelectors'
 import store, { AppDispatch } from 'store'
@@ -22,6 +22,22 @@ const App: FC = () => {
   const { pathname } = useLocation()
   const isAuth = useSelector(isAuthSelector)
   const title = useSelector(titleSelector)
+  const [lastPathname, setLastPathname] = useState<string>('')
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isAuth) {
+      const pathname = localStorage.getItem('pathname')
+
+      setLastPathname(pathname || '/home')
+    } else {
+      setLastPathname('/login')
+    }
+  }, [isAuth])
+
+  useEffect(() => {
+    navigate(lastPathname)
+  }, [lastPathname])
 
   useEffect(() => {
     const userData = localStorage.getItem('userData')
