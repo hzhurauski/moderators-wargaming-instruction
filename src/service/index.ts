@@ -13,9 +13,14 @@ export const instance = axios.create({
 })
 
 export const commentAPI = {
-  getComments() {
+  async getComments() {
     return instance
       .get<ResponseType<CommentType[]>>('comments')
+      .then(({ data }) => data)
+  },
+  async setComment(comment: CommentType) {
+    return instance
+      .post<void>('comment', { comment: comment })
       .then(({ data }) => data)
   },
 }
