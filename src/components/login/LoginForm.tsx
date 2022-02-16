@@ -27,11 +27,10 @@ const LoginForm: FC = () => {
   const onFinish = useCallback(
     ({ name, rememberMe }: FormType) => {
       if (password === 'Legal_Team') {
-        dispatch(actions.setUserData(name, rememberMe))
+        dispatch(actions.setUserName(name))
         dispatch(actions.setIsAuth(true))
         if (rememberMe) {
-          const userData = JSON.stringify({ name, isRememberMe: rememberMe })
-          localStorage.setItem('userData', userData)
+          localStorage.setItem('name', name)
         }
       } else {
         setIsError(true)

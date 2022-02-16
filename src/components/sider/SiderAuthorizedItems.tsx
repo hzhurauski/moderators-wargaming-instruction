@@ -12,7 +12,7 @@ const SiderAuthorizedItems: FC = () => {
   const dispatch = useDispatch<DispatchType>()
 
   const handleClick = useCallback(() => {
-    localStorage.removeItem('userData')
+    localStorage.removeItem('name')
     dispatch(actions.setIsAuth(false))
   }, [dispatch])
 

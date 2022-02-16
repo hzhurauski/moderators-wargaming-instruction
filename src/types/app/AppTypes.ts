@@ -1,8 +1,3 @@
-export type UserData = {
-  isRememberMe: boolean
-  name: string
-}
-
 export type MdType = {
   maxPhoneWidth: number
   ua: string

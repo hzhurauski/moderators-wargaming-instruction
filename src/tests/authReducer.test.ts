@@ -5,10 +5,7 @@ let state: InitialStateType
 beforeEach(() => {
   state = {
     isAuth: true,
-    payload: {
-      name: '',
-      isRememberMe: false,
-    },
+    name: '',
   }
 })
 
@@ -19,8 +16,7 @@ test('IS_ACCESS', () => {
 })
 
 test('USER_DATA', () => {
-  const NewState = authReducer(state, actions.setUserData('name', true))
+  const NewState = authReducer(state, actions.setUserName('name'))
 
-  expect(NewState.payload.name).toBe('name')
-  expect(NewState.payload.isRememberMe).toBeTruthy()
+  expect(NewState.name).toBe('name')
 })

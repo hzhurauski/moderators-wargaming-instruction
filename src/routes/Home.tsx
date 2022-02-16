@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { withAuthRedirect } from 'hoc/withAuthRedirect'
-import { userDataSelector } from 'selectors/authSelectors'
+import { userNameSelector } from 'selectors/authSelectors'
 import styles from 'components/page/Page.module.css'
 import { Link } from 'react-router-dom'
 
 const Home: FC = () => {
-  const { name } = useSelector(userDataSelector)
+  const name = useSelector(userNameSelector)
 
   return (
     <div className={styles.main}>

@@ -1,11 +1,6 @@
 import { createSelector } from 'reselect'
 import { AppStateType } from 'store'
 
-type PayloadType = {
-  name: string
-  isRememberMe: boolean
-}
-
 export const isAuthSelector = createSelector(
   (state: AppStateType): boolean => {
     return state.authPage.isAuth
@@ -13,9 +8,9 @@ export const isAuthSelector = createSelector(
   (isAuth) => isAuth
 )
 
-export const userDataSelector = createSelector(
-  (state: AppStateType): PayloadType => {
-    return state.authPage.payload
+export const userNameSelector = createSelector(
+  (state: AppStateType): string => {
+    return state.authPage.name
   },
-  (payload) => payload
+  (name) => name
 )

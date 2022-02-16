@@ -5,10 +5,7 @@ type ActionsType = InferActionsType<typeof actions>
 
 const initialState = {
   isAuth: false,
-  payload: {
-    name: '',
-    isRememberMe: false,
-  },
+  name: '',
 }
 
 const authReducer = (
@@ -24,7 +21,7 @@ const authReducer = (
     case 'USER_DATA':
       return {
         ...state,
-        payload: action.payload,
+        name: action.name,
       }
     default:
       return state
@@ -33,10 +30,10 @@ const authReducer = (
 
 export const actions = {
   setIsAuth: (isAuth: boolean) => ({ type: 'IS_ACCESS', isAuth } as const),
-  setUserData: (name: string, isRememberMe: boolean) =>
+  setUserName: (name: string) =>
     ({
       type: 'USER_DATA',
-      payload: { name, isRememberMe },
+      name,
     } as const),
 }
 
