@@ -15,7 +15,6 @@ import store, { AppDispatch } from 'store'
 import { actions as appActions } from 'store/appReducer'
 import { actions as authActions } from 'store/authReducer'
 import { getCommentsThunk } from 'store/commentReducer'
-import { UserData } from 'types/app/AppTypes'
 
 const App: FC = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -40,15 +39,11 @@ const App: FC = () => {
   }, [lastPathname])
 
   useEffect(() => {
-    const userData = localStorage.getItem('userData')
+    const userName = localStorage.getItem('name')
 
-    if (userData) {
-      const { isRememberMe, name } = JSON.parse(userData) as UserData
-
-      if (isRememberMe && name) {
-        dispatch(authActions.setIsAuth(true))
-        dispatch(authActions.setUserData(name, isRememberMe))
-      }
+    if (userName) {
+      dispatch(authActions.setIsAuth(true))
+      dispatch(authActions.setUserName(userName))
     }
 
     dispatch(getCommentsThunk())

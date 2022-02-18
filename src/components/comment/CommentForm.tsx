@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { userDataSelector } from 'selectors/authSelectors'
+import { userNameSelector } from 'selectors/authSelectors'
 import {
   isSubmittingSelector,
   commentsSelector,
@@ -17,7 +17,7 @@ const { TextArea } = Input
 const CommentForm: FC = () => {
   const [message, setMessage] = useState<string>('')
   const dispatch = useDispatch<DispatchType>()
-  const { name } = useSelector(userDataSelector)
+  const name = useSelector(userNameSelector)
   const comments = useSelector(commentsSelector)
   const isSubmitting = useSelector(isSubmittingSelector)
 
