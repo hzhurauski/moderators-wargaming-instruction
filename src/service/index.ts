@@ -13,14 +13,19 @@ export const instance = axios.create({
 })
 
 export const commentAPI = {
-  async getComments() {
+  getComments() {
     return instance
       .get<ResponseType<CommentType[]>>('comments')
       .then(({ data }) => data)
   },
-  async setComment(comment: CommentType) {
+  setComment(comment: CommentType) {
     return instance
       .post<void>('comment', { comment: comment })
+      .then(({ data }) => data)
+  },
+  deleteComment(id: string) {
+    return instance
+      .delete<void>('comment', { params: { id } })
       .then(({ data }) => data)
   },
 }
