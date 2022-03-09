@@ -23,6 +23,12 @@ export const commentAPI = {
       .post<void>('comment', { comment: comment })
       .then(({ data }) => data)
   },
+  changeComment(id: string) {
+    return instance
+      .put<void>('comment', { params: { id } })
+      .then(({ data }) => data)
+  },
+
   deleteComment(id: string) {
     return instance
       .delete<void>('comment', { params: { id } })
