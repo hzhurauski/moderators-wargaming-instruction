@@ -28,10 +28,14 @@ export const commentAPI = {
       .put<void>('comment', { params: { id } })
       .then(({ data }) => data)
   },
-
   deleteComment(id: string) {
     return instance
       .delete<void>('comment', { params: { id } })
+      .then(({ data }) => data)
+  },
+  changeUserName(newName: string) {
+    return instance
+      .put<void>('name', { params: { newName } })
       .then(({ data }) => data)
   },
 }
