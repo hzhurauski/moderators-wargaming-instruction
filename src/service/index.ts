@@ -38,4 +38,7 @@ export const commentAPI = {
       .put<void>('name', { params: { newName } })
       .then(({ data }) => data)
   },
+  setAvatar(name: string) {
+    return instance.post<void>('name', { name }).then(({ data }) => data)
+  },
 }
