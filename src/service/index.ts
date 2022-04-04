@@ -44,4 +44,9 @@ export const commentAPI = {
   changeAvatar(avatar: string) {
     return instance.put<void>('avatar', { avatar }).then(({ data }) => data)
   },
+  deleteAvatar(avatar: string) {
+    return instance
+      .delete<void>('avatar', { params: { avatar } })
+      .then(({ data }) => data)
+  },
 }
