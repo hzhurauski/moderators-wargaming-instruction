@@ -38,6 +38,9 @@ export const commentAPI = {
       .put<void>('name', { params: { newName } })
       .then(({ data }) => data)
   },
+  deleteUserName() {
+    return instance.delete<void>('name').then(({ data }) => data)
+  },
   setAvatar(avatar: string) {
     return instance.post<void>('avatar', { avatar }).then(({ data }) => data)
   },
