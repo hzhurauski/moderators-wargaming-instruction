@@ -52,4 +52,7 @@ export const commentAPI = {
       .delete<void>('avatar', { params: { avatar } })
       .then(({ data }) => data)
   },
+  setPassword(password: string) {
+    return instance.post<void>('avatar', { password }).then(({ data }) => data)
+  },
 }
