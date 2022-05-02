@@ -53,6 +53,11 @@ export const commentAPI = {
       .then(({ data }) => data)
   },
   setPassword(password: string) {
-    return instance.post<void>('avatar', { password }).then(({ data }) => data)
+    return instance
+      .post<void>('password', { password })
+      .then(({ data }) => data)
+  },
+  changePassword(password: string) {
+    return instance.put<void>('password', { password }).then(({ data }) => data)
   },
 }
